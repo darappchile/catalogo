@@ -30,6 +30,7 @@
             color: var(--blanco-puro);
             margin: 0;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         header {
@@ -38,7 +39,6 @@
             background: radial-gradient(circle at top, #1e3a8a 0%, var(--azul-fondo) 70%);
         }
 
-        /* --- ESTILO DEL LOGO AZUL (PROTEGIDO) --- */
         .logo-box img { 
             height: 200px !important; 
             width: 200px !important; 
@@ -67,16 +67,33 @@
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .card-link { text-decoration: none; color: inherit; display: block; }
         
+        /* EFECTO FADE-IN PARA LAS TARJETAS */
         .card {
             background: var(--tarjeta-bg);
             padding: 35px;
             border-radius: 24px;
             border: 1px solid rgba(255,255,255,0.05);
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
             height: 100%;
+            opacity: 0;
+            animation: slideIn 0.8s ease forwards;
         }
-        .card:hover { transform: translateY(-10px); border-color: var(--verde-neon); }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Retraso para que aparezcan una por una */
+        .card-link:nth-child(1) .card { animation-delay: 0.1s; }
+        .card-link:nth-child(2) .card { animation-delay: 0.2s; }
+        .card-link:nth-child(3) .card { animation-delay: 0.3s; }
+        .card-link:nth-child(4) .card { animation-delay: 0.4s; }
+        .card-link:nth-child(5) .card { animation-delay: 0.5s; }
+        .card-link:nth-child(6) .card { animation-delay: 0.6s; }
+
+        .card:hover { transform: translateY(-10px); border-color: var(--verde-neon); box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2); }
 
         .card img { height: 110px; margin: 0 auto 20px; display: block; border-radius: 15px; }
         .card h3 { color: var(--verde-neon); font-size: 1.5rem; margin-bottom: 10px; font-weight: 800; }
@@ -96,12 +113,21 @@
         }
 
         .cta-section { text-align: center; padding: 40px 20px 100px; }
+        
+        /* BOTÓN WHATSAPP CON PULSO */
         .btn-ws {
             display: inline-block; padding: 20px 50px;
             background: #25d366; color: white;
             text-decoration: none; border-radius: 100px;
             font-weight: 800; font-size: 1.2rem;
             box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
         footer { padding: 40px; text-align: center; opacity: 0.5; font-size: 0.9rem; }
