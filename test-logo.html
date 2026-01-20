@@ -5,37 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DARAPP | Prueba Logo Azul</title>
     <style>
-        :root {
-            --azul-fondo: #0a1128;
-            --verde-neon: #10b981;
-        }
         body {
-            background-color: var(--azul-fondo);
+            background-color: #0a1128;
             color: white;
-            font-family: sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
         }
-        /* EL SECRETO PARA QUE NO SALTE: Tamaño fijo y bloqueado */
         .logo-container {
-            padding: 50px 20px;
+            position: relative;
         }
         .logo-container img {
-            width: 250px !important; /* Siempre medirá esto */
-            height: 250px !important;
-            border-radius: 50%;
-            border: 5px solid #00d2ff;
-            object-fit: cover;
+            width: 280px !important;
+            height: 280px !important;
+            border-radius: 50% !important;
+            border: 6px solid #00d2ff;
+            /* ESTO CORRIGE EL EFECTO ACHINADO */
+            object-fit: cover !important; 
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.4);
         }
-        .botones-abajo {
-            margin-top: 50px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
+        h1 { margin-top: 20px; font-size: 2.5rem; }
+        .verde { color: #10b981; }
+        .botones { margin-top: 30px; display: flex; gap: 15px; }
         .btn {
-            padding: 15px 30px;
-            border-radius: 10px;
+            padding: 12px 30px;
+            border-radius: 25px;
             text-decoration: none;
             color: white;
             font-weight: bold;
@@ -45,14 +43,13 @@
 <body>
 
     <div class="logo-container">
-        <img src="logo.jpg" alt="Logo Azul DARAPP">
-        <h1>DARAPP <span style="color: var(--verde-neon);">CHILE</span></h1>
-        <p>Versión de prueba sin errores</p>
+        <img src="logo.jpg" alt="Logo DARAPP">
     </div>
 
-    <hr style="opacity: 0.2;">
+    <h1>DARAPP <span class="verde">CHILE</span></h1>
+    <p>Versión corregida y estable</p>
 
-    <div class="botones-abajo">
+    <div class="botones">
         <a href="#" class="btn" style="background-color: #007bff;">📞 Llamar</a>
         <a href="#" class="btn" style="background-color: #28a745;">📍 Mapa</a>
     </div>
