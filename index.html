@@ -1,108 +1,177 @@
-<style>
-    :root {
-        --azul-fondo: #0a1128;
-        --verde-neon: #10b981;
-        --blanco-puro: #ffffff;
-        --tarjeta-bg: #161b22;
-        --azul-brillo: #00d2ff;
-    }
-
-    body {
-        font-family: 'Inter', sans-serif;
-        background-color: var(--azul-fondo);
-        color: var(--blanco-puro);
-        margin: 0;
-        line-height: 1.6;
-        overflow-x: hidden;
-    }
-
-    header {
-        padding: 60px 20px 40px;
-        text-align: center;
-        background: radial-gradient(circle at top, #1e3a8a 0%, var(--azul-fondo) 70%);
-    }
-
-    .logo-box img { 
-        height: 200px !important; width: 200px !important; 
-        object-fit: cover !important; border-radius: 50% !important;
-        border: 6px solid var(--azul-brillo);
-        box-shadow: 0 0 30px rgba(0, 210, 255, 0.4);
-        margin-bottom: 15px;
-    }
-
-    .header-title { font-size: 2.2rem; margin: 10px 0 5px; letter-spacing: 2px; font-weight: 800; }
-    .header-subtitle { color: #94a3b8; font-size: 1rem; margin: 0; opacity: 0.8; }
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DARAPP | Soluciones Digitales</title>
     
-    .container { max-width: 1200px; margin: 20px auto 50px; padding: 0 20px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-    .card-link { text-decoration: none; color: inherit; display: block; }
-    
-    /* TARJETAS CON ANIMACIÓN Y MOVIMIENTO REESTABLECIDO */
-    .card {
-        background: var(--tarjeta-bg);
-        padding: 35px;
-        border-radius: 24px;
-        border: 1px solid rgba(255,255,255,0.05);
-        text-align: center;
-        transition: all 0.3s ease-out; /* Esta línea es la clave */
-        height: 100%;
-        opacity: 0;
-        animation: slideIn 0.8s ease forwards;
-    }
-    
-    @keyframes slideIn {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0a1128">
 
-    /* Retrasos de entrada */
-    .card-link:nth-child(1) .card { animation-delay: 0.1s; }
-    .card-link:nth-child(2) .card { animation-delay: 0.2s; }
-    .card-link:nth-child(3) .card { animation-delay: 0.3s; }
-    .card-link:nth-child(4) .card { animation-delay: 0.4s; }
-    .card-link:nth-child(5) .card { animation-delay: 0.5s; }
-    .card-link:nth-child(6) .card { animation-delay: 0.6s; }
+    <style>
+        :root {
+            --azul-fondo: #0a1128;
+            --verde-neon: #10b981;
+            --blanco-puro: #ffffff;
+            --tarjeta-bg: #161b22;
+        }
 
-    /* ¡AQUÍ ESTÁ EL MOVIMIENTO! */
-    .card:hover { 
-        transform: translateY(-12px); 
-        border-color: var(--verde-neon); 
-        box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
-        background: #1c2128;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--azul-fondo);
+            color: var(--blanco-puro);
+            margin: 0;
+            line-height: 1.6;
+        }
 
-    .card img { height: 110px; margin: 0 auto 20px; display: block; border-radius: 15px; }
-    .card h3 { color: var(--verde-neon); font-size: 1.5rem; margin-bottom: 10px; font-weight: 800; }
-    .card p { color: #8b949e; font-size: 0.95rem; }
+        header {
+            padding: 80px 20px;
+            text-align: center;
+            background: radial-gradient(circle at top, #1e3a8a 0%, var(--azul-fondo) 70%);
+        }
 
-    .planes-section { max-width: 1000px; margin: 80px auto; padding: 0 20px; }
-    .planes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-    .plan-card {
-        background: #1c2128; padding: 40px; border-radius: 30px;
-        border: 1px solid rgba(255,255,255,0.1); text-align: center;
-    }
-    .plan-elite { border: 2px solid var(--verde-neon); position: relative; }
-    .badge {
-        position: absolute; top: -15px; right: 20px;
-        background: var(--verde-neon); color: var(--azul-fondo);
-        padding: 5px 15px; border-radius: 10px; font-weight: bold; font-size: 0.8rem;
-    }
+        /* Ajuste de logo circular */
+        .logo-box img { 
+            height: 180px; 
+            width: 180px; 
+            object-fit: cover; 
+            border-radius: 50%; 
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)); 
+        }
+        
+        .container { max-width: 1200px; margin: -50px auto 50px; padding: 0 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .card-link { text-decoration: none; color: inherit; display: block; }
+        
+        .card {
+            background: var(--tarjeta-bg);
+            padding: 35px;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        .card:hover { transform: translateY(-10px); border-color: var(--verde-neon); }
 
-    .cta-section { text-align: center; padding: 40px 20px 100px; }
-    .btn-ws {
-        display: inline-block; padding: 20px 50px;
-        background: #25d366; color: white;
-        text-decoration: none; border-radius: 100px;
-        font-weight: 800; font-size: 1.2rem;
-        box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-        animation: pulse 2s infinite;
-    }
+        .card img { height: 110px; margin: 0 auto 20px; display: block; border-radius: 15px; }
+        .card h3 { color: var(--verde-neon); font-size: 1.5rem; margin-bottom: 10px; font-weight: 800; }
+        .card p { color: #8b949e; font-size: 0.95rem; }
 
-    @keyframes pulse {
-        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-        70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-    }
+        .planes-section { max-width: 1000px; margin: 80px auto; padding: 0 20px; }
+        .planes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .plan-card {
+            background: #1c2128; padding: 40px; border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.1); text-align: center;
+        }
+        .plan-elite { border: 2px solid var(--verde-neon); position: relative; }
+        .badge {
+            position: absolute; top: -15px; right: 20px;
+            background: var(--verde-neon); color: var(--azul-fondo);
+            padding: 5px 15px; border-radius: 10px; font-weight: bold; font-size: 0.8rem;
+        }
 
-    footer { padding: 40px; text-align: center; opacity: 0.5; font-size: 0.9rem; }
-</style>
+        .cta-section { text-align: center; padding: 40px 20px 100px; }
+        .btn-ws {
+            display: inline-block; padding: 20px 50px;
+            background: #25d366; color: white;
+            text-decoration: none; border-radius: 100px;
+            font-weight: 800; font-size: 1.2rem;
+        }
+
+        footer { padding: 40px; text-align: center; opacity: 0.5; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-box">
+        <img src="logo.jpg" alt="DARAPP LOGO">
+    </div>
+    <h1>Potencia tu presencia digital</h1>
+    <p>Apps personalizadas para que tu negocio nunca deje de crecer.</p>
+</header>
+
+<div class="container">
+    <div class="grid">
+        <a href="carniceria.html" class="card-link">
+            <div class="card">
+                <img src="cat-carne.png" alt="Carnicería">
+                <h3>Carniceria Pro</h3>
+                <p>Muestra tus cortes y actualiza precios al instante.</p>
+            </div>
+        </a>
+        <a href="almacen.html" class="card-link">
+            <div class="card">
+                <img src="cat-almacen.png" alt="Almacén">
+                <h3>Almacen Express</h3>
+                <p>Pedidos rápidos para tus vecinos sin complicaciones.</p>
+            </div>
+        </a>
+        <a href="banda.html" class="card-link">
+            <div class="card">
+                <img src="cat-banda.png" alt="Banda">
+                <h3>Banda Musical</h3>
+                <p>Fechas de tocatas, música y contacto directo.</p>
+            </div>
+        </a>
+        <a href="night.html" class="card-link">
+            <div class="card">
+                <img src="cat-night.png" alt="Night Club">
+                <h3>Night Club Elite</h3>
+                <p>Reservas VIP y cartelera de eventos elegante.</p>
+            </div>
+        </a>
+        <a href="food.html" class="card-link">
+            <div class="card">
+                <img src="cat-food.png" alt="Food">
+                <h3>Food & Delivery</h3>
+                <p>Menú interactivo y pedidos directo a WhatsApp.</p>
+            </div>
+        </a>
+        <a href="restaurantes.html" class="card-link">
+            <div class="card">
+                <img src="cat-restaurante.png" alt="Restaurantes">
+                <h3>Restaurante Pro</h3>
+                <p>Menú digital con QR y gestión de reservas.</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="planes-section">
+    <h2 style="text-align: center; color: var(--verde-neon); margin-bottom: 40px;">Planes de Lanzamiento</h2>
+    <div class="planes-grid">
+        <div class="plan-card">
+            <h3 style="color: var(--verde-neon);">DARAPP START</h3>
+            <ul style="text-align: left; color: #cbd5e1; list-style: none; padding: 0;">
+                <li>✅ App PWA Instalable</li>
+                <li>✅ Logo Profesional (Bonificado)</li>
+                <li>✅ Soporte Actualización (1er mes gratis)</li>
+            </ul>
+        </div>
+        <div class="plan-card plan-elite">
+            <span class="badge">RECOMENDADO</span>
+            <h3 style="color: var(--verde-neon);">DARAPP ELITE</h3>
+            <ul style="text-align: left; color: #cbd5e1; list-style: none; padding: 0;">
+                <li>✅ Todo lo de Plan Start</li>
+                <li>✅ Publicación en Google Play Store</li>
+                <li>✅ Soporte Técnico Total (1 Año)</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="cta-section">
+    <a href="https://wa.me/56944422261?text=Hola%20DARAPP,%20quiero%20informacion%20sobre%20los%20planes" class="btn-ws">
+        ¡QUIERO MI APP AHORA!
+    </a>
+</div>
+
+<footer>
+    &copy; 2026 DARAPP Soluciones Digitales
+</footer>
+
+</body>
+</html>
