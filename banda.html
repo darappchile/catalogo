@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista Previa | Banda Musical</title>
+    <style>
+        :root {
+            --azul-fondo: #0a1128;
+            --purpura-neon: #a855f7; /* Color exclusivo para la Banda */
+            --blanco: #ffffff;
+            --tarjeta-bg: #161b22;
+        }
+
+        body {
+            background-color: var(--azul-fondo);
+            color: var(--blanco);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        header { text-align: center; margin-bottom: 30px; }
+        .logo-negocio { height: 120px; margin-bottom: 10px; border-radius: 15px; }
+        
+        h1 { color: var(--purpura-neon); font-size: 1.8rem; margin: 0; }
+        .subtitulo { opacity: 0.8; font-size: 1rem; }
+
+        .ofertas-container { width: 100%; max-width: 500px; margin-top: 20px; }
+
+        .oferta-card {
+            background: var(--tarjeta-bg);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--purpura-neon);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .oferta-info h3 { margin: 0; font-size: 1.2rem; }
+        .oferta-info p { margin: 5px 0 0; color: #8b949e; font-size: 0.9rem; }
+        .precio { color: var(--purpura-neon); font-size: 1rem; font-weight: bold; }
+
+        .footer-info { width: 100%; max-width: 500px; margin-top: 30px; text-align: center; }
+        
+        .mapa-ficticio {
+            width: 100%; height: 200px; background: #1c2128; border-radius: 20px;
+            margin-bottom: 20px; display: flex; align-items: center; justify-content: center;
+            border: 1px solid rgba(255,255,255,0.1); color: #4b5563;
+        }
+
+        .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        
+        .btn { padding: 15px; border-radius: 12px; text-decoration: none; color: white; font-weight: bold; text-align: center; }
+        .btn-llamar { background: #1e3a8a; }
+        .btn-mapa { background: #e11d48; }
+
+        .btn-volver { 
+            margin-top: 40px; 
+            color: var(--purpura-neon); 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            border-bottom: 1px solid var(--purpura-neon); 
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="cat-banda.png" alt="Banda Musical" class="logo-negocio">
+        <h1>Banda Rock Pro</h1>
+        <p class="subtitulo">Música en Vivo y Eventos Especiales</p>
+    </header>
+
+    <div class="ofertas-container">
+        <h2 style="text-align: center; margin-bottom: 20px; color: var(--purpura-neon);">PRÓXIMOS SHOWS</h2>
+        
+        <div class="oferta-card">
+            <div class="oferta-info">
+                <h3>Festival del Rock</h3>
+                <p>Escenario Principal - 21:00 hrs</p>
+            </div>
+            <div class="precio">15 ENE</div>
+        </div>
+
+        <div class="oferta-card">
+            <div class="oferta-info">
+                <h3>Noche de Jazz & Blues</h3>
+                <p>Club de Música Local</p>
+            </div>
+            <div class="precio">22 ENE</div>
+        </div>
+
+        <div class="oferta-card">
+            <div class="oferta-info">
+                <h3>Evento Privado</h3>
+                <p>Reserva disponible para tu boda</p>
+            </div>
+            <div class="precio">FEBRERO</div>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <h3>UBICACIÓN DEL PRÓXIMO SHOW</h3>
+        <div class="mapa-ficticio">
+            <p>📍 Ver mapa del recinto</p>
+        </div>
+
+        <div class="btn-group">
+            <a href="tel:56944422261" class="btn btn-llamar">📞 CONTRATAR</a>
+            <a href="#" class="btn btn-mapa">📍 TICKETS</a>
+        </div>
+    </div>
+
+    <a href="index.html" class="btn-volver">← VOLVER AL CATÁLOGO</a>
+
+</body>
+</html>

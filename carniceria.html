@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista Previa | Carnicería Doña Rosa</title>
+    <style>
+        :root {
+            --azul-fondo: #0a1128;
+            --verde-neon: #10b981;
+            --blanco: #ffffff;
+            --tarjeta-bg: #161b22;
+        }
+
+        body {
+            background-color: var(--azul-fondo);
+            color: var(--blanco);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        header { text-align: center; margin-bottom: 30px; }
+        .logo-negocio { height: 120px; margin-bottom: 10px; }
+        
+        h1 { color: var(--verde-neon); font-size: 1.8rem; margin: 0; }
+        .subtitulo { opacity: 0.8; font-size: 1rem; }
+
+        /* CONTENEDOR DE CARNES */
+        .ofertas-container { width: 100%; max-width: 500px; margin-top: 20px; }
+
+        .oferta-card {
+            background: var(--tarjeta-bg);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--verde-neon);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .oferta-info h3 { margin: 0; font-size: 1.2rem; color: var(--blanco); }
+        .oferta-info p { margin: 5px 0 0; color: #8b949e; font-size: 0.9rem; }
+        .precio { color: var(--verde-neon); font-size: 1.4rem; font-weight: bold; }
+
+        /* SECCIÓN MAPA Y BOTONES */
+        .footer-info { width: 100%; max-width: 500px; margin-top: 30px; text-align: center; }
+        
+        .mapa-ficticio {
+            width: 100%; height: 200px; background: #1c2128; border-radius: 20px;
+            margin-bottom: 20px; display: flex; align-items: center; justify-content: center;
+            border: 1px solid rgba(255,255,255,0.1); color: #8b949e;
+        }
+
+        .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        
+        .btn { padding: 15px; border-radius: 12px; text-decoration: none; color: white; font-weight: bold; text-align: center; }
+        .btn-llamar { background: #1e3a8a; }
+        .btn-mapa { background: #e11d48; }
+
+        .btn-volver { 
+            margin-top: 40px; 
+            color: var(--verde-neon); 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            border-bottom: 1px solid var(--verde-neon);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="cat-carne.png" alt="Carnicería" class="logo-negocio">
+        <h1>Carnicería Doña Rosa</h1>
+        <p class="subtitulo">Cortes Premium y Calidad Garantizada</p>
+    </header>
+
+    <div class="ofertas-container">
+        <h2 style="text-align: center; margin-bottom: 20px; color: var(--verde-neon);">OFERTAS DE HOY</h2>
+        
+        <div class="oferta-card">
+            <div class="oferta-info">
+                <h3>Lomo Vetado</h3>
+                <p>Vacuno Selección Especial</p>
+            </div>
+            <div class="precio">$12.990</div>
+        </div>
+
+        <div class="oferta-card">
+            <div class="oferta-info">
+                <h3>Pechuga de Pollo</h3>
+                <p>Fresco de Granja (Kilo)</p>
+            </div>
+            <div class="precio">$5.490</div>
+        </div>
+
+        <div class="oferta-card">
+            <div class="oferta-info">
+                <h3>Asiento de Picana</h3>
+                <p>Corte tierno para asado</p>
+            </div>
+            <div class="precio">$9.800</div>
+        </div>
+
+        <div class="oferta-card">
+            <div class="oferta-info">
+                <h3>Costillar de Cerdo</h3>
+                <p>Ideal para el horno</p>
+            </div>
+            <div class="precio">$7.500</div>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <h3>UBICACIÓN</h3>
+        <div class="mapa-ficticio">
+            <p>📍 Mapa Cargando...</p>
+        </div>
+
+        <div class="btn-group">
+            <a href="tel:56944422261" class="btn btn-llamar">📞 LLAMAR</a>
+            <a href="#" class="btn btn-mapa">📍 VER MAPA</a>
+        </div>
+    </div>
+
+    <a href="index.html" class="btn-volver">← VOLVER AL CATÁLOGO</a>
+
+</body>
+</html>
