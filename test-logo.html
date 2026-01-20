@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DARAPP | Prueba Logo Azul</title>
+    <style>
+        :root {
+            --azul-fondo: #0a1128;
+            --verde-neon: #10b981;
+        }
+        body {
+            background-color: var(--azul-fondo);
+            color: white;
+            font-family: sans-serif;
+            margin: 0;
+            text-align: center;
+        }
+        /* EL SECRETO PARA QUE NO SALTE: Tamaño fijo y bloqueado */
+        .logo-container {
+            padding: 50px 20px;
+        }
+        .logo-container img {
+            width: 250px !important; /* Siempre medirá esto */
+            height: 250px !important;
+            border-radius: 50%;
+            border: 5px solid #00d2ff;
+            object-fit: cover;
+        }
+        .botones-abajo {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .btn {
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo-container">
+        <img src="logo.jpg" alt="Logo Azul DARAPP">
+        <h1>DARAPP <span style="color: var(--verde-neon);">CHILE</span></h1>
+        <p>Versión de prueba sin errores</p>
+    </div>
+
+    <hr style="opacity: 0.2;">
+
+    <div class="botones-abajo">
+        <a href="#" class="btn" style="background-color: #007bff;">📞 Llamar</a>
+        <a href="#" class="btn" style="background-color: #28a745;">📍 Mapa</a>
+    </div>
+
+</body>
+</html>
