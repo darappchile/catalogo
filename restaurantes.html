@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vista Previa | Restaurante Pro</title>
+    <title>DARAPP | Restaurante Gourmet</title>
     <style>
         :root {
             --azul-fondo: #0a1128;
-            --cian: #22d3ee; /* Color Restauración */
+            --cian: #22d3ee;
             --blanco: #ffffff;
             --tarjeta-bg: #161b22;
+            --rojo-mapa: #e11d48;
+            --azul-call: #1e3a8a;
         }
 
         body {
@@ -23,73 +25,145 @@
             padding: 20px;
         }
 
-        header { text-align: center; margin-bottom: 30px; }
-        .logo-negocio { height: 120px; margin-bottom: 10px; }
-        h1 { color: var(--cian); font-size: 1.8rem; margin: 0; }
-        .subtitulo { opacity: 0.8; font-size: 1rem; }
+        header { text-align: center; margin-bottom: 30px; padding-top: 20px; }
+        .logo-negocio { 
+            height: 120px; 
+            margin-bottom: 15px; 
+            border-radius: 20px;
+            filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.3));
+        }
+        
+        h1 { color: var(--cian); font-size: 1.8rem; margin: 0; letter-spacing: 1px; }
+        .subtitulo { opacity: 0.8; font-size: 1rem; color: #94a3b8; }
 
-        .ofertas-container { width: 100%; max-width: 500px; margin-top: 20px; }
+        /* CONTENEDOR DE MENÚ */
+        .ofertas-container { width: 100%; max-width: 500px; margin-top: 10px; }
+        .titulo-seccion { 
+            text-align: center; 
+            margin-bottom: 25px; 
+            color: var(--cian); 
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
 
         .oferta-card {
             background: var(--tarjeta-bg);
             border-radius: 20px;
             padding: 20px;
             margin-bottom: 15px;
-            border-left: 5px solid var(--cian);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-left: 6px solid var(--cian);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: transform 0.2s;
         }
+        .oferta-card:hover { transform: scale(1.02); }
 
-        .oferta-info h3 { margin: 0; font-size: 1.2rem; }
-        .oferta-info p { margin: 5px 0 0; color: #8b949e; font-size: 0.9rem; }
-        .precio { color: var(--cian); font-size: 1.4rem; font-weight: bold; }
+        .oferta-info h3 { margin: 0; font-size: 1.15rem; color: var(--blanco); }
+        .oferta-info p { margin: 5px 0 0; color: #8b949e; font-size: 0.85rem; }
+        .precio { color: var(--cian); font-size: 1.3rem; font-weight: bold; }
 
-        .footer-info { width: 100%; max-width: 500px; margin-top: 30px; text-align: center; }
-        .mapa-ficticio {
-            width: 100%; height: 200px; background: #1c2128; border-radius: 20px;
-            margin-bottom: 20px; display: flex; align-items: center; justify-content: center;
-            border: 1px solid rgba(255,255,255,0.1); color: #4b5563;
+        /* SECCIÓN DE ACCIÓN (MAPA Y BOTONES) */
+        .action-section { 
+            width: 100%; 
+            max-width: 500px; 
+            margin-top: 30px; 
+            background: #1c2128; 
+            padding: 20px; 
+            border-radius: 25px;
+            box-sizing: border-box;
+        }
+        
+        .map-container {
+            width: 100%;
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 1px solid rgba(34, 211, 238, 0.2);
         }
 
         .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .btn { padding: 15px; border-radius: 12px; text-decoration: none; color: white; font-weight: bold; text-align: center; }
-        .btn-llamar { background: #1e3a8a; }
-        .btn-mapa { background: #e11d48; }
-        .btn-volver { margin-top: 40px; color: var(--cian); text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid var(--cian); }
+        
+        .btn { 
+            padding: 16px; 
+            border-radius: 15px; 
+            text-decoration: none; 
+            color: white; 
+            font-weight: bold; 
+            text-align: center; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+        .btn-llamar { background: var(--azul-call); box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4); }
+        .btn-mapa { background: var(--rojo-mapa); box-shadow: 0 4px 15px rgba(225, 29, 72, 0.4); }
+
+        .btn-volver { 
+            margin: 40px 0; 
+            color: #94a3b8; 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            transition: color 0.3s;
+        }
+        .btn-volver:hover { color: var(--cian); }
     </style>
 </head>
 <body>
+
     <header>
-        <img src="cat-restaurante.png" alt="Restaurante" class="logo-negocio">
+        <img src="cat-restaurante.png" alt="Restaurante Gourmet" class="logo-negocio">
         <h1>Restaurante Gourmet</h1>
         <p class="subtitulo">Menú de autor y alta cocina</p>
     </header>
 
     <div class="ofertas-container">
-        <h2 style="text-align: center; margin-bottom: 20px;">MENÚ DEL DÍA</h2>
+        <h2 class="titulo-seccion">Menú del Día</h2>
+        
         <div class="oferta-card">
-            <div class="oferta-info"><h3>Salmón a la Plancha</h3><p>Con puré rústico y finas hierbas</p></div>
+            <div class="oferta-info">
+                <h3>Salmón a la Plancha</h3>
+                <p>Con puré rústico y finas hierbas</p>
+            </div>
             <div class="precio">$14.500</div>
         </div>
+
         <div class="oferta-card">
-            <div class="oferta-info"><h3>Fettuccine Alfredo</h3><p>Pasta artesanal con crema</p></div>
+            <div class="oferta-info">
+                <h3>Fettuccine Alfredo</h3>
+                <p>Pasta artesanal con crema</p>
+            </div>
             <div class="precio">$11.200</div>
         </div>
+
         <div class="oferta-card">
-            <div class="oferta-info"><h3>Ceviche de Reineta</h3><p>Preparación clásica peruana</p></div>
+            <div class="oferta-info">
+                <h3>Ceviche de Reineta</h3>
+                <p>Preparación clásica peruana</p>
+            </div>
             <div class="precio">$9.900</div>
         </div>
     </div>
 
-    <div class="footer-info">
-        <h3>RESERVAS Y DELIVERY</h3>
-        <div class="mapa-ficticio"><p>📍 Encuéntranos aquí</p></div>
+    <div class="action-section">
+        <div class="map-container">
+            <iframe 
+                src="https://maps.app.goo.gl/uX9z3zXzXzXzXzXzX0" 
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
         <div class="btn-group">
             <a href="tel:56944422261" class="btn btn-llamar">📞 RESERVAR</a>
-            <a href="#" class="btn btn-mapa">📍 CÓMO LLEGAR</a>
+            <a href="#" class="btn btn-mapa">📍 UBICACIÓN</a>
         </div>
     </div>
-    <a href="index.html" class="btn-volver">← VOLVER AL CATÁLOGO</a>
+
+    <a href="index.html" class="btn-volver">← Volver al Catálogo Principal</a>
+
 </body>
 </html>
