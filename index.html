@@ -27,20 +27,26 @@
         }
 
         header {
-            padding: 100px 20px 80px; /* Más espacio para que respire */
+            padding: 100px 20px 80px;
             text-align: center;
             background: radial-gradient(circle at top, #1e3a8a 0%, var(--azul-fondo) 80%);
         }
 
-        /* LOGO MEJORADO: Ya no es un timbre */
+        /* LOGO CON RESPIRACIÓN GALÁCTICA */
         .logo-box img { 
             height: 220px; 
             width: 220px; 
             object-fit: cover; 
             border-radius: 50%; 
-            border: 5px solid var(--azul-brillo); /* Borde que resalta */
-            box-shadow: 0 0 30px rgba(0, 210, 255, 0.3); /* Brillo sutil */
+            border: 5px solid var(--azul-brillo);
             margin-bottom: 25px;
+            animation: respiracionLogo 4s ease-in-out infinite;
+        }
+
+        @keyframes respiracionLogo {
+            0% { box-shadow: 0 0 20px rgba(0, 210, 255, 0.2); transform: scale(1); }
+            50% { box-shadow: 0 0 50px rgba(0, 210, 255, 0.6); transform: scale(1.03); }
+            100% { box-shadow: 0 0 20px rgba(0, 210, 255, 0.2); transform: scale(1); }
         }
 
         header h1 {
@@ -90,7 +96,7 @@
             text-decoration: none; border-radius: 100px;
             font-weight: 800; font-size: 1.3rem;
             box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-            animation: parpadeo 2s infinite; /* Aquí está la magia */
+            animation: parpadeo 2s infinite;
         }
 
         @keyframes parpadeo {
@@ -137,18 +143,21 @@
         </a>
         <a href="night.html" class="card-link">
             <div class="card">
+                <img src="cat-night.png" alt="Night Club">
                 <h3>Night Club Elite</h3>
                 <p>Reservas VIP y cartelera de eventos elegante.</p>
             </div>
         </a>
         <a href="food.html" class="card-link">
             <div class="card">
+                <img src="cat-food.png" alt="Food">
                 <h3>Food & Delivery</h3>
                 <p>Menú interactivo y pedidos directo a WhatsApp.</p>
             </div>
         </a>
         <a href="restaurantes.html" class="card-link">
             <div class="card">
+                <img src="cat-restaurante.png" alt="Restaurantes">
                 <h3>Restaurante Pro</h3>
                 <p>Menú digital con QR y gestión de reservas.</p>
             </div>
