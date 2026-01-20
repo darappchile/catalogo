@@ -15,6 +15,7 @@
             --verde-neon: #10b981;
             --blanco-puro: #ffffff;
             --tarjeta-bg: #161b22;
+            --azul-brillo: #00d2ff;
         }
 
         body {
@@ -26,21 +27,29 @@
         }
 
         header {
-            padding: 80px 20px;
+            padding: 100px 20px 80px; /* Más espacio para que respire */
             text-align: center;
-            background: radial-gradient(circle at top, #1e3a8a 0%, var(--azul-fondo) 70%);
+            background: radial-gradient(circle at top, #1e3a8a 0%, var(--azul-fondo) 80%);
         }
 
-        /* Ajuste de logo circular */
+        /* LOGO MEJORADO: Ya no es un timbre */
         .logo-box img { 
-            height: 180px; 
-            width: 180px; 
+            height: 220px; 
+            width: 220px; 
             object-fit: cover; 
             border-radius: 50%; 
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)); 
+            border: 5px solid var(--azul-brillo); /* Borde que resalta */
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.3); /* Brillo sutil */
+            margin-bottom: 25px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 10px 0;
+            font-weight: 800;
         }
         
-        .container { max-width: 1200px; margin: -50px auto 50px; padding: 0 20px; }
+        .container { max-width: 1200px; margin: -40px auto 50px; padding: 0 20px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .card-link { text-decoration: none; color: inherit; display: block; }
         
@@ -50,10 +59,10 @@
             border-radius: 24px;
             border: 1px solid rgba(255,255,255,0.05);
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
             height: 100%;
         }
-        .card:hover { transform: translateY(-10px); border-color: var(--verde-neon); }
+        .card:hover { transform: translateY(-10px); border-color: var(--verde-neon); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
 
         .card img { height: 110px; margin: 0 auto 20px; display: block; border-radius: 15px; }
         .card h3 { color: var(--verde-neon); font-size: 1.5rem; margin-bottom: 10px; font-weight: 800; }
@@ -73,11 +82,21 @@
         }
 
         .cta-section { text-align: center; padding: 40px 20px 100px; }
+
+        /* BOTÓN CON PARPADEO (PULSO) */
         .btn-ws {
-            display: inline-block; padding: 20px 50px;
+            display: inline-block; padding: 22px 55px;
             background: #25d366; color: white;
             text-decoration: none; border-radius: 100px;
-            font-weight: 800; font-size: 1.2rem;
+            font-weight: 800; font-size: 1.3rem;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            animation: parpadeo 2s infinite; /* Aquí está la magia */
+        }
+
+        @keyframes parpadeo {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
         footer { padding: 40px; text-align: center; opacity: 0.5; font-size: 0.9rem; }
@@ -89,8 +108,8 @@
     <div class="logo-box">
         <img src="logo.jpg" alt="DARAPP LOGO">
     </div>
-    <h1>Potencia tu presencia digital</h1>
-    <p>Apps personalizadas para que tu negocio nunca deje de crecer.</p>
+    <h1>DARAPP <span style="color: var(--verde-neon);">CHILE</span></h1>
+    <p>Potencia tu presencia digital con Apps personalizadas.</p>
 </header>
 
 <div class="container">
@@ -118,21 +137,18 @@
         </a>
         <a href="night.html" class="card-link">
             <div class="card">
-                <img src="cat-night.png" alt="Night Club">
                 <h3>Night Club Elite</h3>
                 <p>Reservas VIP y cartelera de eventos elegante.</p>
             </div>
         </a>
         <a href="food.html" class="card-link">
             <div class="card">
-                <img src="cat-food.png" alt="Food">
                 <h3>Food & Delivery</h3>
                 <p>Menú interactivo y pedidos directo a WhatsApp.</p>
             </div>
         </a>
         <a href="restaurantes.html" class="card-link">
             <div class="card">
-                <img src="cat-restaurante.png" alt="Restaurantes">
                 <h3>Restaurante Pro</h3>
                 <p>Menú digital con QR y gestión de reservas.</p>
             </div>
