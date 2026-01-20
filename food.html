@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vista Previa | Food & Delivery</title>
+    <title>DARAPP | Food & Delivery</title>
     <style>
         :root {
             --azul-fondo: #0a1128;
-            --rojo-comida: #ef4444; /* Color para Comida */
+            --rojo-comida: #ef4444;
             --blanco: #ffffff;
             --tarjeta-bg: #161b22;
+            --rojo-mapa: #e11d48;
+            --azul-call: #1e3a8a;
         }
 
         body {
@@ -23,73 +25,145 @@
             padding: 20px;
         }
 
-        header { text-align: center; margin-bottom: 30px; }
-        .logo-negocio { height: 120px; margin-bottom: 10px; border-radius: 50%; }
-        h1 { color: var(--rojo-comida); font-size: 1.8rem; margin: 0; }
-        .subtitulo { opacity: 0.8; font-size: 1rem; }
+        header { text-align: center; margin-bottom: 30px; padding-top: 20px; }
+        .logo-negocio { 
+            height: 120px; 
+            margin-bottom: 15px; 
+            border-radius: 50%;
+            filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.3));
+        }
+        
+        h1 { color: var(--rojo-comida); font-size: 1.8rem; margin: 0; letter-spacing: 1px; }
+        .subtitulo { opacity: 0.8; font-size: 1rem; color: #94a3b8; }
 
-        .ofertas-container { width: 100%; max-width: 500px; margin-top: 20px; }
+        /* CONTENEDOR DE MENÚ */
+        .ofertas-container { width: 100%; max-width: 500px; margin-top: 10px; }
+        .titulo-seccion { 
+            text-align: center; 
+            margin-bottom: 25px; 
+            color: var(--rojo-comida); 
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
 
         .oferta-card {
             background: var(--tarjeta-bg);
             border-radius: 20px;
             padding: 20px;
             margin-bottom: 15px;
-            border-left: 5px solid var(--rojo-comida);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-left: 6px solid var(--rojo-comida);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: transform 0.2s;
         }
+        .oferta-card:hover { transform: scale(1.02); }
 
-        .oferta-info h3 { margin: 0; font-size: 1.2rem; }
+        .oferta-info h3 { margin: 0; font-size: 1.2rem; color: var(--blanco); }
         .oferta-info p { margin: 5px 0 0; color: #8b949e; font-size: 0.9rem; }
         .precio { color: var(--rojo-comida); font-size: 1.4rem; font-weight: bold; }
 
-        .footer-info { width: 100%; max-width: 500px; margin-top: 30px; text-align: center; }
-        .mapa-ficticio {
-            width: 100%; height: 200px; background: #1c2128; border-radius: 20px;
-            margin-bottom: 20px; display: flex; align-items: center; justify-content: center;
-            border: 1px solid rgba(255,255,255,0.1); color: #4b5563;
+        /* SECCIÓN DE ACCIÓN (MAPA Y BOTONES ABAJO) */
+        .action-section { 
+            width: 100%; 
+            max-width: 500px; 
+            margin-top: 30px; 
+            background: #1c2128; 
+            padding: 20px; 
+            border-radius: 25px;
+            box-sizing: border-box;
+        }
+        
+        .map-container {
+            width: 100%;
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .btn { padding: 15px; border-radius: 12px; text-decoration: none; color: white; font-weight: bold; text-align: center; }
-        .btn-llamar { background: #1e3a8a; }
-        .btn-mapa { background: #e11d48; }
-        .btn-volver { margin-top: 40px; color: var(--rojo-comida); text-decoration: none; font-size: 0.9rem; border-bottom: 1px solid var(--rojo-comida); }
+        
+        .btn { 
+            padding: 16px; 
+            border-radius: 15px; 
+            text-decoration: none; 
+            color: white; 
+            font-weight: bold; 
+            text-align: center; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+        .btn-llamar { background: var(--azul-call); box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4); }
+        .btn-mapa { background: var(--rojo-mapa); box-shadow: 0 4px 15px rgba(225, 29, 72, 0.4); }
+
+        .btn-volver { 
+            margin: 40px 0; 
+            color: #94a3b8; 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            transition: color 0.3s;
+        }
+        .btn-volver:hover { color: var(--rojo-comida); }
     </style>
 </head>
 <body>
+
     <header>
-        <img src="cat-food.png" alt="Food" class="logo-negocio">
+        <img src="cat-food.png" alt="Food Delivery" class="logo-negocio">
         <h1>Fast Food Delivery</h1>
         <p class="subtitulo">Sabor directo a tu puerta</p>
     </header>
 
     <div class="ofertas-container">
-        <h2 style="text-align: center; margin-bottom: 20px;">MENÚ DESTACADO</h2>
+        <h2 class="titulo-seccion">Menú Destacado</h2>
+        
         <div class="oferta-card">
-            <div class="oferta-info"><h3>Burger Doble Queso</h3><p>Con papas fritas medianas</p></div>
+            <div class="oferta-info">
+                <h3>Burger Doble Queso</h3>
+                <p>Con papas fritas medianas</p>
+            </div>
             <div class="precio">$6.990</div>
         </div>
+
         <div class="oferta-card">
-            <div class="oferta-info"><h3>Pizza Pepperoni L</h3><p>Borde de queso incluido</p></div>
+            <div class="oferta-info">
+                <h3>Pizza Pepperoni L</h3>
+                <p>Borde de queso incluido</p>
+            </div>
             <div class="precio">$9.990</div>
         </div>
+
         <div class="oferta-card">
-            <div class="oferta-info"><h3>Sándwich Mechada</h3><p>Pan artesanal y palta</p></div>
+            <div class="oferta-info">
+                <h3>Sándwich Mechada</h3>
+                <p>Pan artesanal y palta</p>
+            </div>
             <div class="precio">$5.500</div>
         </div>
     </div>
 
-    <div class="footer-info">
-        <h3>REPARTO A DOMICILIO</h3>
-        <div class="mapa-ficticio"><p>📍 Consulta tu zona de cobertura</p></div>
+    <div class="action-section">
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.183021961917!2d-70.6504543!3d-33.4442226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5079a499d69%3A0xe5479a83a15264b3!2sPlaza%20de%20Armas%20de%20Santiago!5e0!3m2!1ses!2scl!4v1705510000000!5m2!1ses!2scl" 
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
         <div class="btn-group">
             <a href="tel:56944422261" class="btn btn-llamar">📞 PEDIR YA</a>
             <a href="#" class="btn btn-mapa">📍 VER LOCAL</a>
         </div>
     </div>
-    <a href="index.html" class="btn-volver">← VOLVER AL CATÁLOGO</a>
+
+    <a href="index.html" class="btn-volver">← Volver al Catálogo Principal</a>
+
 </body>
 </html>
