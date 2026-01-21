@@ -3,56 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DARAPP | Prueba Logo Azul</title>
+    <title>DARAPP | Soluciones Digitales en Ovalle</title>
+    
+    <meta name="description" content="Diseño de aplicaciones y páginas web en Ovalle, Región de Coquimbo. Creamos tu menú digital, catálogo o app personalizada.">
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0a1128">
+
     <style>
+        :root {
+            --azul-fondo: #0a1128;
+            --verde-neon: #10b981;
+            --blanco-puro: #ffffff;
+            --tarjeta-bg: #161b22;
+            --azul-brillo: #00d2ff;
+        }
+
         body {
-            background-color: #0a1128;
-            color: white;
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--azul-fondo);
+            color: var(--blanco-puro);
             margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
+            line-height: 1.6;
         }
-        .logo-container {
-            position: relative;
+
+        header {
+            padding: 100px 20px 80px;
+            text-align: center;
+            background: radial-gradient(circle at top, #1e3a8a 0%, var(--azul-fondo) 80%);
         }
-        .logo-container img {
-            width: 280px !important;
-            height: 280px !important;
-            border-radius: 50% !important;
-            border: 6px solid #00d2ff;
-            /* ESTO CORRIGE EL EFECTO ACHINADO */
-            object-fit: cover !important; 
-            box-shadow: 0 0 30px rgba(0, 210, 255, 0.4);
+
+        /* LOGO CON RESPIRACIÓN GALÁCTICA */
+        .logo-box img { 
+            height: 220px; 
+            width: 220px; 
+            object-fit: cover; 
+            border-radius: 50%; 
+            border: 5px solid var(--azul-brillo);
+            margin-bottom: 25px;
+            animation: respiracionLogo 4s ease-in-out infinite;
         }
-        h1 { margin-top: 20px; font-size: 2.5rem; }
-        .verde { color: #10b981; }
-        .botones { margin-top: 30px; display: flex; gap: 15px; }
-        .btn {
-            padding: 12px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
+
+        @keyframes respiracionLogo {
+            0% { box-shadow: 0 0 20px rgba(0, 210, 255, 0.2); transform: scale(1); }
+            50% { box-shadow: 0 0 50px rgba(0, 210, 255, 0.6); transform: scale(1.03); }
+            100% { box-shadow: 0 0 20px rgba(0, 210, 255, 0.2); transform: scale(1); }
         }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 10px 0;
+            font-weight: 800;
+        }
+        
+        .container { max-width: 1200px; margin: -40px auto 50px; padding: 0 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .card-link { text-decoration: none; color: inherit; display: block; }
+        
+        .card {
+            background: var(--tarjeta-bg);
+            padding: 35px;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .card:hover { transform: translateY(-10px); border-color: var(--verde-neon); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+
+        .card img { height: 110px; margin: 0 auto 20px; display: block; border-radius: 15px; }
+        .card h3 { color: var(--verde-neon); font-size: 1.5rem; margin-bottom: 10px; font-weight: 800; }
+        .card p { color: #8b949e; font-size: 0.95rem; }
+
+        .planes-section { max-width: 1000px; margin: 80px auto; padding: 0 20px; }
+        .planes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .plan-card {
+            background: #1c2128; padding: 40px; border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.1); text-align: center;
+        }
+        .plan-elite { border: 2px solid var(--verde-neon); position: relative; }
+        .badge {
+            position: absolute; top: -15px; right: 20px;
+            background: var(--verde-neon); color: var(--azul-fondo);
+            padding: 5px 15px; border-radius: 10px; font-weight: bold; font-size: 0.8rem;
+        }
+
+        .cta-section { text-align: center; padding: 40px 20px 100px; }
+
+        .btn-ws {
+            display: inline-block; padding: 22px 55px;
+            background: #25d366; color: white;
+            text-decoration: none; border-radius: 100px;
+            font-weight: 800; font-size: 1.3rem;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            animation: parpadeo 2s infinite;
+        }
+
+        @keyframes parpadeo {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); }
+        }
+
+        footer { padding: 40px; text-align: center; opacity: 0.5; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-    <div class="logo-container">
-        <img src="logo.jpg" alt="Logo DARAPP">
+<header>
+    <div class="logo-box">
+        <img src="logo.jpg" alt="DARAPP LOGO">
     </div>
+    <h1>DARAPP <span style="color: var(--verde-neon);">LIMARÍ</span></h1>
+    <p>Innovación Digital en Ovalle y Región de Coquimbo.</p>
+</header>
 
-    <h1>DARAPP <span class="verde">CHILE</span></h1>
-    <p>Versión corregida y estable</p>
+<div class="container">
+    <div class="grid">
+        <a href="camping.html" class="card-link">
+            <div class="card" style="border: 1px solid var(--azul-brillo);">
+                <span style="font-size: 3rem; display: block; margin-bottom: 15px;">🌵</span>
+                <h3>Camping & Turismo</h3>
+                <p>Caso de éxito: Solución completa para centros turísticos en el desierto.</p>
+            </div>
+        </a>
 
-    <div class="botones">
-        <a href="#" class="btn" style="background-color: #007bff;">📞 Llamar</a>
-        <a href="#" class="btn" style="background-color: #28a745;">📍 Mapa</a>
+        <a href="carniceria.html" class="card-link">
+            <div class="card">
+                <img src="cat-carne.png" alt="Carnicería">
+                <h3>Carnicería Pro</h3>
+                <p>Muestra tus cortes y actualiza precios al instante.</p>
+            </div>
+        </a>
+        <a href="almacen.html" class="card-link">
+            <div class="card">
+                <img src="cat-almacen.png" alt="Almacén">
+                <h3>Almacén Express</h3>
+                <p>Pedidos rápidos para tus vecinos sin complicaciones.</p>
+            </div>
+        </a>
+        <a href="food.html" class="card-link">
+            <div class="card">
+                <img src="cat-food.png" alt="Food">
+                <h3>Food & Delivery</h3>
+                <p>Menú interactivo y pedidos directo a WhatsApp.</p>
+            </div>
+        </a>
+        <a href="restaurantes.html" class="card-link">
+            <div class="card">
+                <img src="cat-restaurante.png" alt="Restaurantes">
+                <h3>Restaurante Pro</h3>
+                <p>Menú digital con QR y gestión de reservas.</p>
+            </div>
+        </a>
+        <a href="banda.html" class="card-link">
+            <div class="card">
+                <img src="cat-banda.png" alt="Banda">
+                <h3>Banda Musical</h3>
+                <p>Fechas de tocatas, música y contacto directo.</p>
+            </div>
+        </a>
     </div>
+</div>
+
+<div class="planes-section">
+    <h2 style="text-align: center; color: var(--verde-neon); margin-bottom: 40px;">Planes Ovalle 2026</h2>
+    <div class="planes-grid">
+        <div class="plan-card">
+            <h3 style="color: var(--verde-neon);">DARAPP START</h3>
+            <ul style="text-align: left; color: #cbd5e1; list-style: none; padding: 0;">
+                <li>✅ App PWA Instalable</li>
+                <li>✅ Logo Profesional (Bonificado)</li>
+                <li>✅ Soporte Local en Ovalle</li>
+            </ul>
+        </div>
+        <div class="plan-card plan-elite">
+            <span class="badge">RECOMENDADO</span>
+            <h3 style="color: var(--verde-neon);">DARAPP ELITE</h3>
+            <ul style="text-align: left; color: #cbd5e1; list-style: none; padding: 0;">
+                <li>✅ Todo lo de Plan Start</li>
+                <li>✅ Publicación en Google Play</li>
+                <li>✅ Soporte Técnico Total (1 Año)</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="cta-section">
+    <a href="https://wa.me/56944422261?text=Hola%20DARAPP,%20estoy%20en%20Ovalle%20y%20quiero%20informacion" class="btn-ws">
+        ¡HABLEMOS DE TU PROYECTO!
+    </a>
+</div>
+
+<footer>
+    &copy; 2026 DARAPP Soluciones Digitales - Ovalle, Chile.
+</footer>
 
 </body>
 </html>
