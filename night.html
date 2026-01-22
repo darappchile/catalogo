@@ -9,6 +9,7 @@
             --neon-pink: #ff0055;
             --neon-violet: #bc13fe;
             --gold: #d4af37;
+            --cyan: #00f2ff;
         }
 
         body {
@@ -210,6 +211,29 @@
             animation: pulse-pink 2s infinite;
         }
 
+        /* ESTILO PARA EL BOTÓN DE RETORNO */
+        .btn-return {
+            display: inline-block;
+            margin: 20px auto;
+            padding: 12px 30px;
+            background: transparent;
+            border: 2px solid var(--cyan);
+            color: var(--cyan);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            box-shadow: 0 0 10px var(--cyan);
+            transition: 0.3s;
+        }
+
+        .btn-return:hover {
+            background: var(--cyan);
+            color: black;
+            box-shadow: 0 0 25px var(--cyan);
+        }
+
         @keyframes pulse-pink {
             0% { box-shadow: 0 0 5px var(--neon-pink); }
             50% { box-shadow: 0 0 20px var(--neon-pink); }
@@ -279,6 +303,10 @@
             </iframe>
         </div>
     </div>
+
+    <a href="https://darappchile.github.io/catalogo/" class="btn-return">
+        ⬅ VOLVER A DARAPP PRINCIPAL
+    </a>
 
     <p style="color: rgba(255,255,255,0.2); margin: 60px 0;">— Devil's Ovalle Exclusive —</p>
 
