@@ -40,11 +40,11 @@
             display: inline-block;
             margin-top: 50px;
             padding: 5px;
-            max-width: 90%; /* Asegura que el contenedor no sea más ancho que la pantalla */
+            max-width: 90%; 
         }
 
         .marquee-box {
-            padding: 20px 30px; /* Reducido para que no sea tan ancho */
+            padding: 20px 30px; 
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(12px); 
             border-radius: 100px 20px 100px 20px;
@@ -62,7 +62,7 @@
         }
 
         h1.vegas-title {
-            font-size: 1.8rem; /* Reducido de 2.8 a 1.8 para que quepa en móviles */
+            font-size: 1.8rem; 
             margin: 0;
             color: #fff;
             text-transform: uppercase;
@@ -83,8 +83,8 @@
         .vip-seal {
             position: absolute;
             top: -25px;
-            right: -15px; /* Ajustado para que no se salga */
-            width: 70px; /* Un poco más pequeño para armonizar */
+            right: -15px; 
+            width: 70px; 
             height: 70px;
             background: linear-gradient(135deg, #bf953f, #fcf6ba, #aa771c);
             clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
@@ -95,221 +95,4 @@
             color: #000;
             font-size: 0.65rem;
             font-weight: 900;
-            z-index: 10;
-            border: 2px solid #fff;
-            animation: shine-vip 3s infinite;
-        }
-
-        @keyframes shine-vip {
-            0%, 100% { transform: scale(1); filter: brightness(1); }
-            50% { transform: scale(1.05); filter: brightness(1.3); }
-        }
-
-        .menu-container {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .category-title {
-            color: var(--neon-violet);
-            margin: 45px 0 15px 0;
-            text-transform: uppercase;
-            font-size: 1.4rem;
-            text-shadow: 0 0 15px var(--neon-violet);
-        }
-
-        .menu-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px 0;
-            font-size: 1.1rem;
-            font-weight: bold;
-        }
-
-        .price { 
-            color: var(--gold); 
-            text-shadow: 0 0 10px var(--gold);
-            animation: pulse-gold 2s infinite alternate;
-        }
-
-        .partners-section {
-            margin: 20px auto;
-            max-width: 500px;
-            padding: 15px;
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
-        }
-        
-        .partners-grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            opacity: 0.7;
-        }
-
-        .partner-name {
-            font-size: 0.6rem;
-            color: #aaa;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .map-wrapper {
-            max-width: 500px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        .map-container {
-            width: 100%;
-            height: 200px;
-            border-radius: 15px;
-            border: 2px solid var(--neon-pink);
-            box-shadow: 0 0 15px var(--neon-pink);
-            overflow: hidden;
-            background: #111;
-        }
-
-        .action-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            max-width: 500px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .action-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--gold);
-            padding: 20px;
-            border-radius: 15px;
-            text-decoration: none;
-            color: white;
-            transition: 0.3s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(5px);
-        }
-
-        .action-card:hover {
-            background: var(--gold);
-            color: black;
-            box-shadow: 0 0 20px var(--gold);
-        }
-
-        .action-card span {
-            font-size: 0.9rem;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .full-width {
-            grid-column: span 2;
-            border-color: var(--neon-pink);
-            animation: pulse-pink 2s infinite;
-        }
-
-        .btn-return {
-            display: inline-block;
-            margin: 20px auto;
-            padding: 12px 30px;
-            background: transparent;
-            border: 2px solid var(--cyan);
-            color: var(--cyan);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            box-shadow: 0 0 10px var(--cyan);
-            transition: 0.3s;
-        }
-
-        .btn-return:hover {
-            background: var(--cyan);
-            color: black;
-            box-shadow: 0 0 25px var(--cyan);
-        }
-
-        @keyframes pulse-pink {
-            0% { box-shadow: 0 0 5px var(--neon-pink); }
-            50% { box-shadow: 0 0 20px var(--neon-pink); }
-            100% { box-shadow: 0 0 5px var(--neon-pink); }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="promo-banner">
-        🔥 VIERNES Y SÁBADO: 2x1 SHOP ARTESANAL 🔥
-    </div>
-
-    <div class="header-container">
-        <a href="https://wa.me/569444422261?text=Hola%20Daniel,%20quiero%20actualizar%20mi%20información:%0A-%20Nombre%20dueño:%0A-%20Nombre%20Local:%0A-%20Info%20a%20actualizar:" class="vip-seal">
-            <span>RESERVA<br>VIP</span>
-        </a>
-
-        <div class="marquee-box">
-            <h1 class="vegas-title">DEVIL'S OVALLE</h1>
-            <p style="color: var(--gold); letter-spacing: 5px; font-weight: bold; margin-top: 10px; font-size: 0.7rem;">NIGHT CLUB</p>
-        </div>
-    </div>
-
-    <div class="menu-container">
-        <h2 class="category-title">Coctelería Premium</h2>
-        <div class="menu-item"><span>Whisky Blue Label</span> <span class="price">$150.000</span></div>
-        <div class="menu-item"><span>Mojito Frambuesa</span> <span class="price">$7.500</span></div>
-        <div class="menu-item"><span>Tequila Margarita</span> <span class="price">$8.000</span></div>
-        
-        <h2 class="category-title">Cervezas & Shops</h2>
-        <div class="menu-item"><span>Shop Artesanal 500cc</span> <span class="price">$5.000</span></div>
-        <div class="menu-item"><span>Heineken Botella</span> <span class="price">$4.500</span></div>
-    </div>
-
-    <div class="partners-section">
-        <div class="partners-grid">
-            <span class="partner-name">JOHNNIE WALKER</span>
-            <span class="partner-name">HEINEKEN</span>
-            <span class="partner-name">CHIVAS REGAL</span>
-            <span class="partner-name">CORONA</span>
-        </div>
-    </div>
-
-    <div class="action-grid">
-        <a href="#" class="action-card full-width">
-            <span>VER PROMOS DE HOY</span>
-        </a>
-        <a href="tel:+569444422261" class="action-card">
-            <span>LLAMAR</span>
-        </a>
-        <a href="https://maps.google.com/?q=Ovalle,Chile" class="action-card">
-            <span>UBICACION</span>
-        </a>
-    </div>
-
-    <div class="map-wrapper">
-        <div class="map-container">
-            <iframe 
-                width="100%" 
-                height="100%" 
-                frameborder="0" 
-                scrolling="no" 
-                marginheight="0" 
-                marginwidth="0" 
-                src="https://maps.google.com/maps?q=Ovalle,Chile&t=&z=15&ie=UTF8&iwloc=&output=embed">
-            </iframe>
-        </div>
-    </div>
-
-    <a href="https://darappchile.github.io/catalogo/" class="btn-return">
-        ⬅ VOLVER A DARAPP PRINCIPAL
-    </a>
-
-    <p style="color: rgba(255,255,255,0.2); margin: 60px 0;">— Devil's Ovalle Exclusive —</p>
-
-</body>
-</html>
+            z
