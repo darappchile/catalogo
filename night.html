@@ -23,6 +23,7 @@
             color: white;
             font-family: 'Arial Black', sans-serif;
             text-align: center;
+            overflow-x: hidden; /* Evita rebote lateral */
         }
 
         .promo-banner {
@@ -39,10 +40,11 @@
             display: inline-block;
             margin-top: 50px;
             padding: 5px;
+            max-width: 90%; /* Asegura que el contenedor no sea más ancho que la pantalla */
         }
 
         .marquee-box {
-            padding: 30px 60px;
+            padding: 20px 30px; /* Reducido para que no sea tan ancho */
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(12px); 
             border-radius: 100px 20px 100px 20px;
@@ -60,11 +62,11 @@
         }
 
         h1.vegas-title {
-            font-size: 2.8rem;
+            font-size: 1.8rem; /* Reducido de 2.8 a 1.8 para que quepa en móviles */
             margin: 0;
             color: #fff;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             animation: text-flicker 2s infinite;
         }
 
@@ -81,9 +83,9 @@
         .vip-seal {
             position: absolute;
             top: -25px;
-            right: -30px;
-            width: 85px;
-            height: 85px;
+            right: -15px; /* Ajustado para que no se salga */
+            width: 70px; /* Un poco más pequeño para armonizar */
+            height: 70px;
             background: linear-gradient(135deg, #bf953f, #fcf6ba, #aa771c);
             clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
             display: flex;
@@ -91,7 +93,7 @@
             justify-content: center;
             text-decoration: none;
             color: #000;
-            font-size: 0.75rem;
+            font-size: 0.65rem;
             font-weight: 900;
             z-index: 10;
             border: 2px solid #fff;
@@ -121,7 +123,7 @@
             display: flex;
             justify-content: space-between;
             padding: 12px 0;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
         }
 
@@ -142,12 +144,12 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 15px;
             opacity: 0.7;
         }
 
         .partner-name {
-            font-size: 0.7rem;
+            font-size: 0.6rem;
             color: #aaa;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -211,7 +213,6 @@
             animation: pulse-pink 2s infinite;
         }
 
-        /* ESTILO PARA EL BOTÓN DE RETORNO */
         .btn-return {
             display: inline-block;
             margin: 20px auto;
@@ -254,7 +255,7 @@
 
         <div class="marquee-box">
             <h1 class="vegas-title">DEVIL'S OVALLE</h1>
-            <p style="color: var(--gold); letter-spacing: 8px; font-weight: bold; margin-top: 10px; font-size: 0.8rem;">NIGHT CLUB</p>
+            <p style="color: var(--gold); letter-spacing: 5px; font-weight: bold; margin-top: 10px; font-size: 0.7rem;">NIGHT CLUB</p>
         </div>
     </div>
 
