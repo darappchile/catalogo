@@ -3,125 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DARAPP | Restaurante Gourmet</title>
+    <title>DARAPP | Restaurante Doña Astrid</title>
     <style>
         :root {
             --azul-fondo: #0a1128;
             --cian: #22d3ee;
+            --dorado: #d4af37;
+            --crema: #fff5e6;
             --blanco: #ffffff;
-            --tarjeta-bg: #161b22;
+            --tarjeta-bg: transparent; 
             --rojo-mapa: #e11d48;
             --azul-call: #1e3a8a;
         }
 
         body {
-            background-color: var(--azul-fondo);
-            color: var(--blanco);
-            font-family: 'Inter', sans-serif;
             margin: 0;
+            padding: 0;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('fondo.png'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--crema);
+            font-family: 'Inter', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px;
+            overflow-x: hidden;
         }
 
-        header { text-align: center; margin-bottom: 30px; padding-top: 20px; }
-        .logo-negocio { 
-            height: 120px; 
-            margin-bottom: 15px; 
-            border-radius: 20px;
-            filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.3));
-        }
-        
-        h1 { color: var(--cian); font-size: 1.8rem; margin: 0; letter-spacing: 1px; font-weight: 800; }
-        .subtitulo { opacity: 0.8; font-size: 1rem; color: #94a3b8; }
-
-        .ofertas-container { width: 100%; max-width: 500px; margin-top: 10px; }
-        .titulo-seccion { 
+        /* --- AJUSTE DEL NUEVO LETREO CON BALANCEO --- */
+        header { 
             text-align: center; 
-            margin-bottom: 25px; 
-            color: var(--cian); 
-            font-size: 1.3rem;
+            margin-bottom: 30px; 
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .img-letrero {
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
+            /* Animación de balanceo corregida */
+            animation: balanceoViento 4s ease-in-out infinite;
+            transform-origin: top center;
+        }
+
+        @keyframes balanceoViento {
+            0% { transform: rotate(1.5deg); }
+            50% { transform: rotate(-1.5deg); }
+            100% { transform: rotate(1.5deg); }
+        }
+
+        .subtitulo { 
+            font-size: 1rem; 
+            color: var(--dorado); 
+            font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
+            margin-top: -10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+        }
+
+        /* --- RESTO DEL CÓDIGO INTACTO --- */
+        .ofertas-container { width: 100%; max-width: 500px; margin-top: 10px; }
+        
+        .titulo-seccion { 
+            text-align: center; 
+            margin: 40px 0 20px 0; 
+            color: var(--dorado); 
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-bottom: 2px solid var(--dorado);
+            padding-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
         .oferta-card {
             background: var(--tarjeta-bg);
-            border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 15px;
-            border: 1px solid rgba(255,255,255,0.05);
-            border-left: 6px solid var(--cian);
+            padding: 15px 10px;
+            margin-bottom: 5px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: transform 0.2s;
+            text-shadow: 2px 2px 8px rgba(0,0,0,1);
         }
-        .oferta-card:hover { transform: scale(1.02); }
 
         .oferta-info h3 { margin: 0; font-size: 1.15rem; color: var(--blanco); }
-        .oferta-info p { margin: 5px 0 0; color: #8b949e; font-size: 0.85rem; }
-        .precio { color: var(--cian); font-size: 1.3rem; font-weight: bold; }
+        .oferta-info p { margin: 5px 0 0; color: var(--crema); font-size: 0.85rem; opacity: 0.9; }
+        .precio { color: var(--dorado); font-size: 1.3rem; font-weight: bold; margin-left: 10px; }
 
         .action-section { 
-            width: 100%; 
-            max-width: 500px; 
-            margin-top: 30px; 
-            background: #1c2128; 
-            padding: 20px; 
-            border-radius: 25px;
-            box-sizing: border-box;
+            width: 100%; max-width: 500px; margin-top: 40px; 
+            background: rgba(0, 0, 0, 0.4); padding: 20px; 
+            border-radius: 25px; box-sizing: border-box; backdrop-filter: blur(5px);
         }
         
         .map-container {
-            width: 100%;
-            height: 200px;
-            border-radius: 15px;
-            overflow: hidden;
-            margin-bottom: 20px;
-            border: 1px solid rgba(34, 211, 238, 0.2);
+            width: 100%; height: 200px; border-radius: 15px;
+            overflow: hidden; margin-bottom: 20px; border: 2px solid var(--dorado);
         }
 
         .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        
         .btn { 
-            padding: 16px; 
-            border-radius: 15px; 
-            text-decoration: none; 
-            color: white; 
-            font-weight: bold; 
-            text-align: center; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-size: 0.9rem;
+            padding: 18px; border-radius: 15px; text-decoration: none; 
+            color: white; font-weight: bold; text-align: center; 
+            display: flex; align-items: center; justify-content: center;
+            gap: 10px; font-size: 0.9rem; text-transform: uppercase;
         }
-        .btn-llamar { background: var(--azul-call); box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4); }
-        .btn-mapa { background: var(--rojo-mapa); box-shadow: 0 4px 15px rgba(225, 29, 72, 0.4); }
+        .btn-llamar { background: linear-gradient(135deg, #1e3a8a 0%, #0a1128 100%); border: 1px solid var(--cian); }
+        .btn-mapa { background: linear-gradient(135deg, #e11d48 0%, #881337 100%); }
 
         .btn-volver { 
-            margin: 40px 0; 
-            color: #94a3b8; 
-            text-decoration: none; 
-            font-size: 0.9rem; 
-            transition: color 0.3s;
+            margin: 40px 0; color: var(--crema); text-decoration: none; 
+            font-size: 0.8rem; border: 1px solid rgba(255,255,255,0.3);
+            padding: 10px 20px; border-radius: 50px;
         }
-        .btn-volver:hover { color: var(--cian); }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="cat-restaurante.png" alt="Restaurante Gourmet" class="logo-negocio">
-        <h1>Restaurante Gourmet</h1>
-        <p class="subtitulo">Menú de autor y alta cocina</p>
+        <img src="letrero.png" alt="Restaurante Doña Astrid" class="img-letrero">
+        <p class="subtitulo">Sabor Casero & Tradición</p>
     </header>
 
     <div class="ofertas-container">
-        <h2 class="titulo-seccion">Menú del Día</h2>
+        <h2 class="titulo-seccion">Nuestros Platos</h2>
         
+        <div class="oferta-card">
+            <div class="oferta-info">
+                <h3>Cazuela de Vacuno</h3>
+                <p>Receta de campo con verduras frescas</p>
+            </div>
+            <div class="precio">$8.900</div>
+        </div>
+
+        <div class="oferta-card">
+            <div class="oferta-info">
+                <h3>Pastel de Choclo</h3>
+                <p>En paila de greda caliente</p>
+            </div>
+            <div class="precio">$9.500</div>
+        </div>
+
+        <div class="oferta-card">
+            <div class="oferta-info">
+                <h3>Costillar al Horno</h3>
+                <p>Con papas doradas y ensalada chilena</p>
+            </div>
+            <div class="precio">$12.500</div>
+        </div>
+
         <div class="oferta-card">
             <div class="oferta-info">
                 <h3>Salmón a la Plancha</h3>
@@ -132,18 +171,10 @@
 
         <div class="oferta-card">
             <div class="oferta-info">
-                <h3>Fettuccine Alfredo</h3>
-                <p>Pasta artesanal con crema</p>
+                <h3>Lomo a lo Pobre</h3>
+                <p>Corte premium con papas y cebolla frita</p>
             </div>
-            <div class="precio">$11.200</div>
-        </div>
-
-        <div class="oferta-card">
-            <div class="oferta-info">
-                <h3>Ceviche de Reineta</h3>
-                <p>Preparación clásica peruana</p>
-            </div>
-            <div class="precio">$9.900</div>
+            <div class="precio">$15.900</div>
         </div>
     </div>
 
@@ -151,7 +182,7 @@
         <div class="map-container">
             <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.183021961917!2d-70.6504543!3d-33.4442226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDI2JzM5LjIiUyA3MMKwMzknMDEuNiJX!5e0!3m2!1ses!2scl!4v1620000000000!5m2!1ses!2scl" 
-                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
             </iframe>
         </div>
 
@@ -162,6 +193,8 @@
     </div>
 
     <a href="index.html" class="btn-volver">← Volver al Catálogo Principal</a>
+
+    <p style="color: rgba(255,255,255,0.3); font-size: 0.6rem; margin-top: 20px; margin-bottom: 40px;">Powered by DarApp Chile</p>
 
 </body>
 </html>
