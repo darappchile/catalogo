@@ -36,7 +36,7 @@
         /* --- AJUSTE DEL NUEVO LETREO CON BALANCEO --- */
         header { 
             text-align: center; 
-            margin-bottom: 30px; 
+            margin-bottom: 0px; /* Reducido para acercar la siguiente sección */
             width: 100%;
             max-width: 600px;
             display: flex;
@@ -49,7 +49,6 @@
             height: auto;
             max-width: 500px;
             filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
-            /* Animación de balanceo corregida */
             animation: balanceoViento 4s ease-in-out infinite;
             transform-origin: top center;
         }
@@ -60,22 +59,26 @@
             100% { transform: rotate(1.5deg); }
         }
 
+        /* --- ESTILO MADERA PARA SUBTITULO --- */
         .subtitulo { 
-            font-size: 1rem; 
-            color: var(--dorado); 
+            font-size: 1.1rem; 
+            color: #d7ccc8; /* Color madera clara */
+            font-family: 'Courier New', Courier, monospace; /* Estilo rústico */
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-top: -10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+            margin-top: -15px;
+            margin-bottom: 10px;
+            /* Efecto de tallado en madera */
+            text-shadow: 2px 2px 0px #3e2723, 3px 3px 5px rgba(0,0,0,0.8);
         }
 
         /* --- RESTO DEL CÓDIGO INTACTO --- */
-        .ofertas-container { width: 100%; max-width: 500px; margin-top: 10px; }
+        .ofertas-container { width: 100%; max-width: 500px; margin-top: 0px; }
         
         .titulo-seccion { 
             text-align: center; 
-            margin: 40px 0 20px 0; 
+            margin: 10px 0 20px 0; /* Margen superior reducido para pegar a sabor casero */
             color: var(--dorado); 
             font-size: 1.3rem;
             text-transform: uppercase;
