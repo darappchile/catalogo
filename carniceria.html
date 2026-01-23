@@ -3,174 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DARAPP | Carnicería Doña Rosa</title>
+    <title>DARAPP | Carnicería JP</title>
     <style>
         :root {
-            --azul-fondo: #0a1128;
-            --verde-neon: #10b981;
+            --rojo-principal: #b91c1c;
+            --dorado: #d4af37;
+            --crema: #fff5e6;
             --blanco: #ffffff;
-            --tarjeta-bg: #161b22;
-            --rojo-mapa: #e11d48;
-            --azul-call: #1e3a8a;
+            --tarjeta-bg: rgba(0, 0, 0, 0.6); 
+            --negro-trans: rgba(0, 0, 0, 0.85);
         }
 
         body {
-            background-color: var(--azul-fondo);
-            color: var(--blanco);
-            font-family: 'Inter', sans-serif;
             margin: 0;
+            padding: 0;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('fondo_carne.png'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--crema);
+            font-family: 'Inter', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px;
         }
 
-        header { text-align: center; margin-bottom: 30px; padding-top: 20px; }
-        .logo-negocio { 
-            height: 120px; 
-            margin-bottom: 15px; 
-            filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.3));
-        }
-        
-        h1 { color: var(--verde-neon); font-size: 1.8rem; margin: 0; letter-spacing: 1px; }
-        .subtitulo { opacity: 0.8; font-size: 1rem; color: #94a3b8; }
-
-        /* CONTENEDOR DE OFERTAS */
-        .ofertas-container { width: 100%; max-width: 500px; margin-top: 10px; }
-        .titulo-seccion { 
+        header { 
             text-align: center; 
             margin-bottom: 25px; 
-            color: var(--verde-neon); 
-            font-size: 1.4rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
+        .img-letrero {
+            width: 90%;
+            max-width: 400px; 
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
+            animation: balanceoViento 4s ease-in-out infinite;
+            transform-origin: top center;
+        }
+
+        @keyframes balanceoViento {
+            0% { transform: rotate(1.5deg); }
+            50% { transform: rotate(-1.5deg); }
+            100% { transform: rotate(1.5deg); }
+        }
+
+        /* --- ESTILO DE LAS TARJETAS CON IMAGEN --- */
+        .ofertas-container { width: 100%; max-width: 500px; }
+        
         .oferta-card {
             background: var(--tarjeta-bg);
-            border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 15px;
-            border: 1px solid rgba(255,255,255,0.05);
-            border-left: 6px solid var(--verde-neon);
+            backdrop-filter: blur(5px);
+            margin-bottom: 12px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
             transition: transform 0.2s;
         }
-        .oferta-card:hover { transform: scale(1.02); }
 
-        .oferta-info h3 { margin: 0; font-size: 1.2rem; color: var(--blanco); }
-        .oferta-info p { margin: 5px 0 0; color: #8b949e; font-size: 0.9rem; }
-        .precio { color: var(--verde-neon); font-size: 1.4rem; font-weight: bold; }
+        .img-producto {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-right: 2px solid var(--rojo-principal);
+        }
 
-        /* SECCIÓN DE ACCIÓN (MAPA Y BOTONES) */
+        .oferta-info {
+            padding: 12px;
+            flex-grow: 1;
+        }
+
+        .oferta-info h3 { margin: 0; font-size: 1rem; color: var(--blanco); text-transform: uppercase; }
+        .oferta-info p { margin: 4px 0 0; color: #ccc; font-size: 0.8rem; }
+        
+        .precio { 
+            padding-right: 15px;
+            color: var(--dorado); 
+            font-size: 1.1rem; 
+            font-weight: bold; 
+            white-space: nowrap;
+        }
+
+        /* --- SECCIÓN DE ACCIÓN --- */
         .action-section { 
-            width: 100%; 
-            max-width: 500px; 
-            margin-top: 30px; 
-            background: #1c2128; 
-            padding: 20px; 
-            border-radius: 25px;
-            box-sizing: border-box;
+            width: 100%; max-width: 500px; margin-top: 20px; 
+            background: var(--negro-trans); padding: 20px; 
+            border-radius: 25px; border: 1px solid var(--dorado);
         }
         
         .map-container {
-            width: 100%;
-            height: 200px;
-            border-radius: 15px;
-            overflow: hidden;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
+            width: 100%; height: 150px; border-radius: 15px;
+            overflow: hidden; margin-bottom: 15px;
         }
 
-        .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        
+        .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .btn { 
-            padding: 16px; 
-            border-radius: 15px; 
-            text-decoration: none; 
-            color: white; 
-            font-weight: bold; 
-            text-align: center; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-size: 0.95rem;
+            padding: 14px; border-radius: 12px; text-decoration: none; 
+            color: white; font-weight: bold; text-align: center; font-size: 0.8rem;
         }
-        .btn-llamar { background: var(--azul-call); box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4); }
-        .btn-mapa { background: var(--rojo-mapa); box-shadow: 0 4px 15px rgba(225, 29, 72, 0.4); }
+        .btn-llamar { background: linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%); }
+        .btn-mapa { background: #333; border: 1px solid var(--dorado); }
 
         .btn-volver { 
-            margin: 40px 0; 
-            color: #94a3b8; 
-            text-decoration: none; 
-            font-size: 0.9rem; 
-            transition: color 0.3s;
+            margin-top: 30px; color: var(--crema); text-decoration: none; 
+            font-size: 0.8rem; opacity: 0.6;
         }
-        .btn-volver:hover { color: var(--verde-neon); }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="cat-carne.png" alt="Carnicería" class="logo-negocio">
-        <h1>Carnicería Doña Rosa</h1>
-        <p class="subtitulo">Cortes Premium y Calidad Garantizada</p>
+        <img src="letrero_carne.png" alt="Carnicería JP" class="img-letrero">
     </header>
 
     <div class="ofertas-container">
-        <h2 class="titulo-seccion">Ofertas de Hoy</h2>
-        
         <div class="oferta-card">
+            <img src="lomo_vetado.png" class="img-producto">
             <div class="oferta-info">
-                <h3>Lomo Vetado</h3>
-                <p>Vacuno Selección Especial</p>
+                <h3>Lomo Vetado Angus</h3>
+                <p>Corte premium con marmoleo perfecto</p>
             </div>
-            <div class="precio">$12.990</div>
+            <div class="precio">$14.990</div>
         </div>
 
         <div class="oferta-card">
+            <img src="pack_asado.png" class="img-producto">
             <div class="oferta-info">
-                <h3>Pechuga de Pollo</h3>
-                <p>Fresco de Granja (Kilo)</p>
+                <h3>Pack Asado Familiar</h3>
+                <p>Abastero, Chorizos y Carbón</p>
             </div>
-            <div class="precio">$5.490</div>
+            <div class="precio">$29.990</div>
         </div>
 
         <div class="oferta-card">
-            <div class="oferta-info">
-                <h3>Asiento de Picana</h3>
-                <p>Corte tierno para asado</p>
-            </div>
-            <div class="precio">$9.800</div>
-        </div>
-
-        <div class="oferta-card">
+            <img src="costillar.png" class="img-producto">
             <div class="oferta-info">
                 <h3>Costillar de Cerdo</h3>
-                <p>Ideal para el horno</p>
+                <p>Ideal para cocción lenta o parrilla</p>
             </div>
-            <div class="precio">$7.500</div>
+            <div class="precio">$8.500</div>
+        </div>
+
+        <div class="oferta-card">
+            <img src="pechuga.png" class="img-producto">
+            <div class="oferta-info">
+                <h3>Pechuga de Pollo</h3>
+                <p>Fresca, deshuesada y limpia</p>
+            </div>
+            <div class="precio">$6.200</div>
         </div>
     </div>
 
     <div class="action-section">
         <div class="map-container">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.123456789!2d-70.6504!3d-33.4489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDI2JzU2LjAiUyA3MMKwMzknMDEuNCJX!5e0!3m2!1ses!2scl!4v1620000000000!5m2!1ses!2scl" 
-                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-            </iframe>
+            <iframe src="http://googleusercontent.com/maps.google.com/4" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
-
         <div class="btn-group">
             <a href="tel:56944422261" class="btn btn-llamar">📞 LLAMAR</a>
-            <a href="https://maps.app.goo.gl/uX9z3zXzXzXzXzXzX" target="_blank" class="btn btn-mapa">📍 CÓMO LLEGAR</a>
+            <a href="#" class="btn btn-mapa">📍 VER MAPA</a>
         </div>
     </div>
 
-    <a href="index.html" class="btn-volver">← Volver al Catálogo Principal</a>
+    <a href="index.html" class="btn-volver">← Volver al inicio</a>
 
 </body>
 </html>
