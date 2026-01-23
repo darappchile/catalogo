@@ -56,33 +56,36 @@
         .oferta-info p { margin: 4px 0 0; color: rgba(255, 255, 255, 0.6); font-size: 0.8rem; }
         .precio { padding-right: 15px; color: var(--dorado); font-size: 1.1rem; font-weight: bold; }
 
-        .footer-pro {
-            width: 100%; max-width: 500px; margin-top: 30px;
-            background: var(--negro-trans); padding: 20px;
-            border-radius: 25px; border: 1px solid var(--dorado); box-sizing: border-box;
+        /* Contenedor invisible para la vaca y botones */
+        .seccion-final {
+            width: 100%; 
+            max-width: 500px; 
+            margin-top: 10px;
             text-align: center;
         }
 
-        /* Vaca limpia sin rectángulos blancos */
         .vaca-img {
             width: 100%; 
             height: auto;
             display: block;
-            margin: 20px 0;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+            margin: 0 auto 25px auto;
+            /* Le da un aire de pegatina o dibujo sobre el fondo */
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.8));
         }
 
         .btn-wa {
             background: #25D366; color: white; text-decoration: none;
             padding: 18px; border-radius: 15px; text-align: center;
             font-weight: 900; display: flex; align-items: center; justify-content: center;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         .btn-loc {
-            background: transparent; color: var(--dorado); border: 1px solid var(--dorado);
+            background: rgba(255, 255, 255, 0.05); color: var(--dorado); border: 1px solid var(--dorado);
             text-decoration: none; padding: 15px; border-radius: 15px;
             text-align: center; font-weight: bold; display: block;
+            backdrop-filter: blur(5px);
         }
     </style>
 </head>
@@ -131,9 +134,7 @@
         </div>
     </div>
 
-    <div class="footer-pro">
-        <h3 style="color: var(--dorado); margin-top: 0;">✂️ GUÍA DE CORTES</h3>
-        
+    <div class="seccion-final">
         <img src="cortes_vacuno.png" class="vaca-img" alt="Cortes de vacuno">
         
         <a href="https://wa.me/56944422261?text=Hola%20Carnicería%20JP,%20quiero%20hacer%20un%20pedido" class="btn-wa">
