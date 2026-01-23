@@ -60,15 +60,16 @@
             width: 100%; max-width: 500px; margin-top: 30px;
             background: var(--negro-trans); padding: 20px;
             border-radius: 25px; border: 1px solid var(--dorado); box-sizing: border-box;
+            text-align: center;
         }
 
-        .vaca-container {
-            background: #fff; padding: 10px; border-radius: 15px; margin-bottom: 20px;
-        }
-
+        /* Vaca limpia sin rectángulos blancos */
         .vaca-img {
-            width: 100%; display: block;
-            filter: contrast(1.1);
+            width: 100%; 
+            height: auto;
+            display: block;
+            margin: 20px 0;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
         }
 
         .btn-wa {
@@ -131,15 +132,14 @@
     </div>
 
     <div class="footer-pro">
-        <h3 style="text-align: center; color: var(--dorado); margin-top: 0;">✂️ GUÍA DE CORTES</h3>
-        <div class="vaca-container">
-            <img src="https://i.pinimg.com/originals/e8/30/3d/e8303d86503e91404c062837b010f3c6.jpg" class="vaca-img" alt="Cortes de vacuno">
-        </div>
+        <h3 style="color: var(--dorado); margin-top: 0;">✂️ GUÍA DE CORTES</h3>
+        
+        <img src="cortes_vacuno.png" class="vaca-img" alt="Cortes de vacuno">
         
         <a href="https://wa.me/56944422261?text=Hola%20Carnicería%20JP,%20quiero%20hacer%20un%20pedido" class="btn-wa">
             💬 PEDIR POR WHATSAPP
         </a>
-        <a href="https://www.google.com/maps?q=Ovalle" target="_blank" class="btn-loc">
+        <a href="https://maps.app.goo.gl/tu-direccion-aqui" target="_blank" class="btn-loc">
             📍 VER UBICACIÓN
         </a>
     </div>
