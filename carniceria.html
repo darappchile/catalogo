@@ -10,24 +10,37 @@
             --dorado: #d4af37;
             --crema: #fff5e6;
             --blanco: #ffffff;
-            --tarjeta-bg: rgba(0, 0, 0, 0.6); 
+            --tarjeta-bg: rgba(0, 0, 0, 0.4); /* Más transparente para que se vea el fondo */
             --negro-trans: rgba(0, 0, 0, 0.85);
         }
 
+        /* --- CORRECCIÓN DE FLUIDEZ --- */
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('fondo_carne.png'); 
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background-color: #000;
             color: var(--crema);
             font-family: 'Inter', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .capa-fondo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('fondo_carne.png'); 
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            will-change: transform;
+            transform: translateZ(0); /* Aceleración para suavidad total */
         }
 
         header { 
@@ -54,26 +67,24 @@
             100% { transform: rotate(1.5deg); }
         }
 
-        /* --- ESTILO DE LAS TARJETAS CON IMAGEN --- */
         .ofertas-container { width: 100%; max-width: 500px; }
         
         .oferta-card {
             background: var(--tarjeta-bg);
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(8px); /* Aumentamos el desenfoque para que los textos resalten */
             margin-bottom: 12px;
             display: flex;
             align-items: center;
             border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.05); /* Borde casi invisible */
             overflow: hidden;
-            transition: transform 0.2s;
         }
 
         .img-producto {
             width: 90px;
             height: 90px;
             object-fit: cover;
-            border-right: 2px solid var(--rojo-principal);
+            /* Quitamos la línea roja por petición tuya de anoche */
         }
 
         .oferta-info {
@@ -81,8 +92,20 @@
             flex-grow: 1;
         }
 
-        .oferta-info h3 { margin: 0; font-size: 1rem; color: var(--blanco); text-transform: uppercase; }
-        .oferta-info p { margin: 4px 0 0; color: #ccc; font-size: 0.8rem; }
+        /* NOMBRES MÁS TRANSPARENTES Y CRISTALINOS */
+        .oferta-info h3 { 
+            margin: 0; 
+            font-size: 1rem; 
+            color: rgba(255, 255, 255, 0.95); /* Blanco casi puro pero sutil */
+            text-transform: uppercase; 
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+        
+        .oferta-info p { 
+            margin: 4px 0 0; 
+            color: rgba(255, 255, 255, 0.6); /* Descripción bien suave */
+            font-size: 0.8rem; 
+        }
         
         .precio { 
             padding-right: 15px;
@@ -92,16 +115,18 @@
             white-space: nowrap;
         }
 
-        /* --- SECCIÓN DE ACCIÓN --- */
         .action-section { 
             width: 100%; max-width: 500px; margin-top: 20px; 
             background: var(--negro-trans); padding: 20px; 
             border-radius: 25px; border: 1px solid var(--dorado);
+            box-sizing: border-box;
         }
         
+        /* CORRECCIÓN MAPA (Ubicación referencial de Ovalle) */
         .map-container {
-            width: 100%; height: 150px; border-radius: 15px;
+            width: 100%; height: 180px; border-radius: 15px;
             overflow: hidden; margin-bottom: 15px;
+            border: 1px solid #444;
         }
 
         .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -113,12 +138,14 @@
         .btn-mapa { background: #333; border: 1px solid var(--dorado); }
 
         .btn-volver { 
-            margin-top: 30px; color: var(--crema); text-decoration: none; 
-            font-size: 0.8rem; opacity: 0.6;
+            margin: 30px 0; color: var(--crema); text-decoration: none; 
+            font-size: 0.8rem; opacity: 0.6; border: 1px solid rgba(255,255,255,0.2);
+            padding: 8px 15px; border-radius: 20px;
         }
     </style>
 </head>
 <body>
+    <div class="capa-fondo"></div>
 
     <header>
         <img src="letrero_carne.png" alt="Carnicería JP" class="img-letrero">
@@ -144,7 +171,7 @@
         </div>
 
         <div class="oferta-card">
-            <img src="costillar.png" class="img-producto">
+            <img src="costillar_cerdo.png" class="img-producto">
             <div class="oferta-info">
                 <h3>Costillar de Cerdo</h3>
                 <p>Ideal para cocción lenta o parrilla</p>
@@ -164,11 +191,14 @@
 
     <div class="action-section">
         <div class="map-container">
-            <iframe src="http://googleusercontent.com/maps.google.com/4" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13735.64234033334!2d-71.2057!3d-30.6033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x968936353d2e1b1d%3A0x6b6d5f7d2b638f0!2sOvalle%2C%20Coquimbo!5e0!3m2!1ses-419!2scl!4v1700000000000!5m2!1ses-419!2scl" 
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
         </div>
         <div class="btn-group">
             <a href="tel:56944422261" class="btn btn-llamar">📞 LLAMAR</a>
-            <a href="#" class="btn btn-mapa">📍 VER MAPA</a>
+            <a href="https://maps.app.goo.gl/YourActualLink" target="_blank" class="btn btn-mapa">📍 VER MAPA</a>
         </div>
     </div>
 
