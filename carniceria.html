@@ -10,7 +10,7 @@
             --dorado: #d4af37;
             --crema: #fff5e6;
             --blanco: #ffffff;
-            --tarjeta-bg: rgba(0, 0, 0, 0.4); /* Más transparente para que se vea el fondo */
+            --tarjeta-bg: rgba(0, 0, 0, 0.4); 
             --negro-trans: rgba(0, 0, 0, 0.85);
         }
 
@@ -40,7 +40,7 @@
             background-position: center;
             z-index: -1;
             will-change: transform;
-            transform: translateZ(0); /* Aceleración para suavidad total */
+            transform: translateZ(0);
         }
 
         header { 
@@ -51,97 +51,51 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            perspective: 1000px; /* Añade profundidad para el efecto 3D */
         }
 
+        /* --- NUEVA ANIMACIÓN: ACERCAR PIZARRA --- */
         .img-letrero {
             width: 90%;
             max-width: 400px; 
-            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
-            animation: balanceoViento 4s ease-in-out infinite;
-            transform-origin: top center;
+            filter: drop-shadow(0 15px 20px rgba(0,0,0,0.6));
+            animation: presentarOferta 5s ease-in-out infinite;
+            transform-origin: center bottom; /* El zoom sale desde abajo hacia el cliente */
         }
 
-        @keyframes balanceoViento {
-            0% { transform: rotate(1.5deg); }
-            50% { transform: rotate(-1.5deg); }
-            100% { transform: rotate(1.5deg); }
+        @keyframes presentarOferta {
+            0%, 100% { 
+                transform: scale(1) translateY(0); 
+            }
+            50% { 
+                transform: scale(1.08) translateY(-10px); /* El cerdito se acerca y sube un poco */
+            }
         }
 
+        /* El resto del CSS se mantiene igual para no alterar nada */
         .ofertas-container { width: 100%; max-width: 500px; }
-        
         .oferta-card {
             background: var(--tarjeta-bg);
-            backdrop-filter: blur(8px); /* Aumentamos el desenfoque para que los textos resalten */
+            backdrop-filter: blur(8px);
             margin-bottom: 12px;
             display: flex;
             align-items: center;
             border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.05); /* Borde casi invisible */
+            border: 1px solid rgba(255,255,255,0.05);
             overflow: hidden;
         }
-
-        .img-producto {
-            width: 90px;
-            height: 90px;
-            object-fit: cover;
-            /* Quitamos la línea roja por petición tuya de anoche */
-        }
-
-        .oferta-info {
-            padding: 12px;
-            flex-grow: 1;
-        }
-
-        /* NOMBRES MÁS TRANSPARENTES Y CRISTALINOS */
-        .oferta-info h3 { 
-            margin: 0; 
-            font-size: 1rem; 
-            color: rgba(255, 255, 255, 0.95); /* Blanco casi puro pero sutil */
-            text-transform: uppercase; 
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
-        }
-        
-        .oferta-info p { 
-            margin: 4px 0 0; 
-            color: rgba(255, 255, 255, 0.6); /* Descripción bien suave */
-            font-size: 0.8rem; 
-        }
-        
-        .precio { 
-            padding-right: 15px;
-            color: var(--dorado); 
-            font-size: 1.1rem; 
-            font-weight: bold; 
-            white-space: nowrap;
-        }
-
-        .action-section { 
-            width: 100%; max-width: 500px; margin-top: 20px; 
-            background: var(--negro-trans); padding: 20px; 
-            border-radius: 25px; border: 1px solid var(--dorado);
-            box-sizing: border-box;
-        }
-        
-        /* CORRECCIÓN MAPA (Ubicación referencial de Ovalle) */
-        .map-container {
-            width: 100%; height: 180px; border-radius: 15px;
-            overflow: hidden; margin-bottom: 15px;
-            border: 1px solid #444;
-        }
-
+        .img-producto { width: 90px; height: 90px; object-fit: cover; }
+        .oferta-info { padding: 12px; flex-grow: 1; }
+        .oferta-info h3 { margin: 0; font-size: 1rem; color: rgba(255, 255, 255, 0.95); text-transform: uppercase; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
+        .oferta-info p { margin: 4px 0 0; color: rgba(255, 255, 255, 0.6); font-size: 0.8rem; }
+        .precio { padding-right: 15px; color: var(--dorado); font-size: 1.1rem; font-weight: bold; white-space: nowrap; }
+        .action-section { width: 100%; max-width: 500px; margin-top: 20px; background: var(--negro-trans); padding: 20px; border-radius: 25px; border: 1px solid var(--dorado); box-sizing: border-box; }
+        .map-container { width: 100%; height: 180px; border-radius: 15px; overflow: hidden; margin-bottom: 15px; border: 1px solid #444; }
         .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .btn { 
-            padding: 14px; border-radius: 12px; text-decoration: none; 
-            color: white; font-weight: bold; text-align: center; font-size: 0.8rem;
-        }
+        .btn { padding: 14px; border-radius: 12px; text-decoration: none; color: white; font-weight: bold; text-align: center; font-size: 0.8rem; }
         .btn-llamar { background: linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%); }
         .btn-mapa { background: #333; border: 1px solid var(--dorado); }
-
-        .btn-volver { 
-            margin: 30px 0; color: var(--crema); text-decoration: none; 
-            font-size: 0.8rem; opacity: 0.6; border: 1px solid rgba(255,255,255,0.2);
-            padding: 8px 15px; border-radius: 20px;
-        }
+        .btn-volver { margin: 30px 0; color: var(--crema); text-decoration: none; font-size: 0.8rem; opacity: 0.6; border: 1px solid rgba(255,255,255,0.2); padding: 8px 15px; border-radius: 20px; }
     </style>
 </head>
 <body>
