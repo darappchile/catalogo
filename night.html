@@ -15,7 +15,8 @@
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+            /* FONDO ACLARADO: Cambiamos de 0.8 a 0.5 para más nitidez */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                         url('fondo_paradise.png'); 
             background-size: cover;
             background-position: center;
@@ -23,7 +24,7 @@
             color: white;
             font-family: 'Arial Black', sans-serif;
             text-align: center;
-            overflow-x: hidden; /* Evita rebote lateral */
+            overflow-x: hidden;
         }
 
         .promo-banner {
@@ -125,6 +126,7 @@
             padding: 12px 0;
             font-size: 1.1rem;
             font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* Reforzamos sombra de texto */
         }
 
         .price { 
@@ -217,7 +219,7 @@
             display: inline-block;
             margin: 20px auto;
             padding: 12px 30px;
-            background: transparent;
+            background: rgba(0,0,0,0.6);
             border: 2px solid var(--cyan);
             color: var(--cyan);
             text-decoration: none;
@@ -249,7 +251,7 @@
     </div>
 
     <div class="header-container">
-        <a href="https://wa.me/56944422261?text=Hola%20Daniel,%20quiero%20actualizar%20mi%20información:%0A-%20Nombre%20dueño:%0A-%20Nombre%20Local:%0A-%20Info%20a%20actualizar:" class="vip-seal">
+        <a href="https://wa.me/56944422261?text=Hola%20Daniel,%20quiero%20actualizar%20mi%20información" class="vip-seal">
             <span>RESERVA<br>VIP</span>
         </a>
 
@@ -309,7 +311,7 @@
         ⬅ VOLVER A DARAPP PRINCIPAL
     </a>
 
-    <p style="color: rgba(255,255,255,0.2); margin: 60px 0;">— Devil's Ovalle Exclusive —</p>
+    <p style="color: rgba(255,255,255,0.4); margin: 60px 0;">— Devil's Ovalle Exclusive —</p>
 
 </body>
 </html>
