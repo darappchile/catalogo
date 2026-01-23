@@ -16,14 +16,11 @@
             --azul-call: #1e3a8a;
         }
 
+        /* --- CORRECCIÓN DE FLUIDEZ (MODO VIDEOJUEGO) --- */
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('fondo.png'); 
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background-color: #000; /* Fondo negro base */
             color: var(--crema);
             font-family: 'Inter', sans-serif;
             display: flex;
@@ -33,10 +30,26 @@
             overflow-x: hidden;
         }
 
+        /* Capa de fondo fija para evitar saltos y zoom */
+        .capa-fondo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('fondo.png'); 
+            background-size: cover;
+            background-position: center;
+            z-index: -1; /* Va detrás de todo */
+            will-change: transform;
+            transform: translateZ(0); /* Aceleración por hardware */
+        }
+
         /* --- AJUSTE DEL NUEVO LETREO CON BALANCEO --- */
         header { 
             text-align: center; 
-            margin-bottom: 0px; /* Reducido para acercar la siguiente sección */
+            margin-bottom: 0px; 
             width: 100%;
             max-width: 600px;
             display: flex;
@@ -59,26 +72,23 @@
             100% { transform: rotate(1.5deg); }
         }
 
-        /* --- ESTILO MADERA PARA SUBTITULO --- */
         .subtitulo { 
             font-size: 1.1rem; 
-            color: #d7ccc8; /* Color madera clara */
-            font-family: 'Courier New', Courier, monospace; /* Estilo rústico */
+            color: #d7ccc8; 
+            font-family: 'Courier New', Courier, monospace; 
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-top: -15px;
             margin-bottom: 10px;
-            /* Efecto de tallado en madera */
             text-shadow: 2px 2px 0px #3e2723, 3px 3px 5px rgba(0,0,0,0.8);
         }
 
-        /* --- RESTO DEL CÓDIGO INTACTO --- */
         .ofertas-container { width: 100%; max-width: 500px; margin-top: 0px; }
         
         .titulo-seccion { 
             text-align: center; 
-            margin: 10px 0 20px 0; /* Margen superior reducido para pegar a sabor casero */
+            margin: 10px 0 20px 0; 
             color: var(--dorado); 
             font-size: 1.3rem;
             text-transform: uppercase;
@@ -131,6 +141,7 @@
     </style>
 </head>
 <body>
+    <div class="capa-fondo"></div>
 
     <header>
         <img src="letrero.png" alt="Restaurante Doña Astrid" class="img-letrero">
