@@ -1,75 +1,133 @@
-<div class="carnicero-pro-footer">
-        <h3 style="text-align: center; color: var(--dorado); margin-bottom: 10px;">✂️ Conoce tus cortes</h3>
-        
-        <div class="vaca-infografia">
-            <img src="https://img.freepik.com/vector-premium/diagrama-cortes-carne-vaca-estilo-grabado-vintage-aislado-sobre-fondo-blanco_161751-64.jpg" alt="Mapa de cortes vacuno" style="width: 100%; border-radius: 15px; filter: grayscale(1) invert(1) brightness(1.5);">
-        </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DARAPP | Carnicería JP</title>
+    <style>
+        :root {
+            --rojo-principal: #b91c1c;
+            --dorado: #d4af37;
+            --crema: #fff5e6;
+            --blanco: #ffffff;
+            --tarjeta-bg: rgba(0, 0, 0, 0.4); 
+            --negro-trans: rgba(0, 0, 0, 0.85);
+        }
 
-        <div class="contact-buttons-custom">
-            <a href="https://wa.me/56944422261?text=Hola%20Carnicería%20JP,%20quiero%20hacer%20un%20pedido" class="btn-custom-wa">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="20" style="margin-right: 10px;"> 
-                PEDIR POR WHATSAPP
-            </a>
-            
-            <a href="https://maps.app.goo.gl/TU_DIRECCION_AQUI" target="_blank" class="btn-custom-loc">
-                📍 NUESTRO LOCAL
-            </a>
+        body {
+            margin: 0; padding: 0; background-color: #000;
+            color: var(--crema); font-family: 'Inter', sans-serif;
+            display: flex; flex-direction: column; align-items: center;
+            padding: 20px; overflow-x: hidden;
+        }
+
+        .capa-fondo {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('fondo_carne.png'); 
+            background-size: cover; background-position: center; z-index: -1;
+        }
+
+        header { text-align: center; margin-bottom: 25px; width: 100%; max-width: 600px; }
+
+        .img-letrero {
+            width: 90%; max-width: 400px; 
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.4));
+            animation: respiracion 4s ease-in-out infinite;
+        }
+
+        @keyframes respiracion {
+            0%, 100% { transform: translateY(0); filter: brightness(1); }
+            50% { transform: translateY(-8px); filter: brightness(1.15); }
+        }
+
+        .ofertas-container { width: 100%; max-width: 500px; }
+        
+        .oferta-card {
+            background: var(--tarjeta-bg); backdrop-filter: blur(8px);
+            margin-bottom: 12px; display: flex; align-items: center;
+            border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);
+            overflow: hidden; transition: 0.3s;
+        }
+
+        .oferta-card:active { transform: scale(0.96); background: rgba(255, 255, 255, 0.1); }
+        .img-producto { width: 90px; height: 90px; object-fit: cover; }
+        .oferta-info { padding: 12px; flex-grow: 1; }
+        .oferta-info h3 { margin: 0; font-size: 1rem; color: #fff; text-transform: uppercase; }
+        .oferta-info p { margin: 4px 0 0; color: rgba(255, 255, 255, 0.6); font-size: 0.8rem; }
+        .precio { padding-right: 15px; color: var(--dorado); font-size: 1.1rem; font-weight: bold; }
+
+        /* --- SECCIÓN VACA PRO --- */
+        .footer-pro {
+            width: 100%; max-width: 500px; margin-top: 30px;
+            background: var(--negro-trans); padding: 20px;
+            border-radius: 25px; border: 1px solid var(--dorado); box-sizing: border-box;
+        }
+
+        .vaca-container {
+            background: #fff; padding: 10px; border-radius: 15px; margin-bottom: 20px;
+        }
+
+        .vaca-img {
+            width: 100%; display: block;
+            filter: contrast(1.2);
+        }
+
+        .btn-wa {
+            background: #25D366; color: white; text-decoration: none;
+            padding: 18px; border-radius: 15px; text-align: center;
+            font-weight: 900; display: flex; align-items: center; justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .btn-loc {
+            background: transparent; color: var(--dorado); border: 1px solid var(--dorado);
+            text-decoration: none; padding: 15px; border-radius: 15px;
+            text-align: center; font-weight: bold; display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="capa-fondo"></div>
+
+    <header>
+        <img src="letrero_carne.png" alt="Carnicería JP" class="img-letrero">
+    </header>
+
+    <div class="ofertas-container">
+        <div class="oferta-card">
+            <img src="lomo_vetado.png" class="img-producto">
+            <div class="oferta-info">
+                <h3>Lomo Vetado Angus</h3>
+                <p>Corte premium con marmoleo perfecto</p>
+            </div>
+            <div class="precio">$14.990</div>
+        </div>
+        
+        <div class="oferta-card">
+            <img src="costillar_cerdo.png" class="img-producto">
+            <div class="oferta-info">
+                <h3>Costillar de Cerdo</h3>
+                <p>Ideal para la parrilla</p>
+            </div>
+            <div class="precio">$8.500</div>
         </div>
     </div>
 
-    <style>
-        .carnicero-pro-footer {
-            width: 100%;
-            max-width: 500px;
-            margin-top: 30px;
-            padding: 20px;
-            background: rgba(20, 20, 20, 0.9);
-            border-top: 3px solid var(--rojo-principal);
-            border-radius: 30px 30px 0 0;
-        }
+    <div class="footer-pro">
+        <h3 style="text-align: center; color: var(--dorado); margin-top: 0;">✂️ GUÍA DE CORTES</h3>
+        <div class="vaca-container">
+            <img src="https://img.freepik.com/vector-premium/diagrama-cortes-carne-vaca-estilo-grabado-vintage-aislado-sobre-fondo-blanco_161751-64.jpg" class="vaca-img" alt="Cortes de vacuno">
+        </div>
+        
+        <a href="https://wa.me/56944422261?text=Hola%20Carnicería%20JP,%20quiero%20hacer%20un%20pedido" class="btn-wa">
+            💬 PEDIR POR WHATSAPP
+        </a>
+        <a href="https://www.google.com/maps" target="_blank" class="btn-loc">
+            📍 VER UBICACIÓN
+        </a>
+    </div>
 
-        .vaca-infografia {
-            background: #fff;
-            padding: 10px;
-            border-radius: 20px;
-            margin-bottom: 20px;
-            border: 4px double #333;
-        }
+    <a href="index.html" style="margin: 40px 0; color: #fff; opacity: 0.5; text-decoration: none; font-size: 0.8rem;">← Volver al inicio</a>
 
-        .contact-buttons-custom {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .btn-custom-wa {
-            background: #25D366;
-            color: white;
-            text-decoration: none;
-            padding: 18px;
-            border-radius: 15px;
-            text-align: center;
-            font-weight: 900;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-            transition: 0.3s;
-        }
-
-        .btn-custom-loc {
-            background: transparent;
-            color: var(--dorado);
-            border: 2px solid var(--dorado);
-            text-decoration: none;
-            padding: 15px;
-            border-radius: 15px;
-            text-align: center;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn-custom-wa:active, .btn-custom-loc:active {
-            transform: scale(0.95);
-        }
-    </style>
+</body>
+</html>
