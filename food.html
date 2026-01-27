@@ -3,32 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juanita | Comida Rápida</title>
+    <title>Doña Juanita | Comida Rápida</title>
     <style>
         :root {
             --rojo-principal: #ff0000;
             --dorado: #d4af37;
-            --crema: #fff5e6; /* Nuevo color para el texto principal */
-            --blanco: #ffffff;
+            --crema: #fff5e6;
             --verde-wa: #25d366;
-            --pan: #f4a460;
         }
 
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
                         url('ambur.png'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            color: var(--crema); /* Aplicamos el color crema a todo el cuerpo */
+            color: var(--crema);
             font-family: 'Arial Black', sans-serif;
             text-align: center;
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        /* --- MENSAJE SUPERIOR --- */
         .info-superior {
             padding: 25px 10px 10px 10px;
             color: var(--dorado);
@@ -42,77 +40,37 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 20px 0;
+            margin: 0;
             width: 100%;
         }
 
-        /* --- LOGO HAMBURGUESA ANIMADO --- */
-        .marquee-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            animation: latido-burger 1.5s infinite ease-in-out;
+        .logo-img {
+            max-width: 350px;
+            width: 90%;
+            height: auto;
+            margin-top: -10px;
+            filter: drop-shadow(0px 0px 20px rgba(255, 0, 0, 0.6));
+            animation: latido-logo 2.5s infinite ease-in-out;
         }
 
-        .marquee-box::before {
-            content: "";
-            width: 140px;
-            height: 40px;
-            background: var(--pan);
-            border-radius: 100px 100px 10px 10px;
-            border-bottom: 4px solid #8b4513;
-        }
-
-        .marquee-box::after {
-            content: "";
-            width: 140px;
-            height: 20px;
-            background: var(--pan);
-            border-radius: 5px 5px 40px 40px;
-            border-top: 4px solid #8b4513;
-            margin-top: 5px;
-        }
-
-        .burger-content {
-            background: var(--rojo-principal);
-            width: 170px;
-            padding: 12px 0;
-            margin: 2px 0;
-            border-radius: 12px;
-            border: 3px solid var(--dorado);
-            box-shadow: 0 0 20px var(--rojo-principal);
-        }
-
-        @keyframes latido-burger {
+        @keyframes latido-logo {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.12); }
+            50% { transform: scale(1.03); }
         }
 
-        h1.vegas-title {
-            font-size: 1.5rem; 
-            margin: 0;
-            color: #fff;
-            text-transform: uppercase;
-            text-shadow: 2px 2px 0px #000;
-        }
-
-        /* --- CONTENEDOR DE MENÚ --- */
         .menu-container {
             max-width: 450px;
             margin: 0 auto;
-            padding: 0 20px;
-            background: transparent;
-            padding-bottom: 20px;
+            padding: 0 20px 20px 20px;
         }
 
         .category-title {
             color: var(--dorado);
-            margin: 30px 0 20px 0;
+            margin: 30px 0 15px 0;
             text-transform: uppercase;
             font-size: 1.3rem;
             border-bottom: 2px solid var(--dorado);
-            padding-bottom: 8px;
-            padding-top: 20px;
+            padding-bottom: 5px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
@@ -120,10 +78,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 0;
+            padding: 10px 0;
             font-size: 1rem;
-            border-bottom: none;
-            /* Sombra reforzada para el nuevo color crema */
             text-shadow: 2px 2px 5px rgba(0,0,0,1); 
         }
 
@@ -133,10 +89,18 @@
             margin-left: 15px;
         }
 
-        /* --- SECCIÓN DE ACCIONES --- */
+        .badge-popular {
+            background: var(--rojo-principal);
+            color: white;
+            font-size: 0.6rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 5px;
+        }
+
         .action-section {
             max-width: 450px;
-            margin: 40px auto;
+            margin: 20px auto 40px auto;
             padding: 0 20px;
         }
 
@@ -146,7 +110,7 @@
             border-radius: 20px;
             border: 2px solid var(--rojo-principal);
             overflow: hidden;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
 
@@ -167,30 +131,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(0, 0, 0, 0.4); 
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
         }
 
         .btn-wa-premium {
             grid-column: span 2;
             background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
-            border: none;
         }
 
-        .btn-call {
-            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
-            border: none;
-        }
-
-        .btn-map {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            border: none;
-        }
+        .btn-call { background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%); }
+        .btn-map { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
 
         .btn-return {
             display: inline-block;
-            margin: 30px 0;
+            margin-bottom: 30px;
             color: var(--crema);
             text-decoration: none;
             font-size: 0.8rem;
@@ -203,49 +156,60 @@
 <body>
 
     <div class="info-superior">
-        🚀 CALIDAD PREMIUM - PEDIDOS AL INSTANTE 🚀
+        🚀 CALIDAD PREMIUM - DOÑA JUANITA 🚀
     </div>
 
     <div class="header-container">
-        <div class="marquee-box">
-            <div class="burger-content">
-                <h1 class="vegas-title">JUANITA</h1>
-                <p style="color: white; margin: 0; font-size: 0.6rem; font-family: sans-serif;">COMIDA RÁPIDA</p>
-            </div>
-        </div>
+        <img src="logo-juanita.png" alt="Doña Juanita" class="logo-img">
     </div>
 
     <div class="menu-container">
         <h2 class="category-title">Especialidades</h2>
-        <div class="menu-item"><span>Chorrillana Juanita</span> <span class="price">$12.500</span></div>
+        <div class="menu-item"><span>Chorrillana Juanita <span class="badge-popular">🔥 TOP</span></span> <span class="price">$12.500</span></div>
         <div class="menu-item"><span>Burger XL Tocino</span> <span class="price">$7.200</span></div>
         <div class="menu-item"><span>Completo Italiano</span> <span class="price">$2.500</span></div>
         
+        <h2 class="category-title">Sánguiches Chilenos</h2>
+        <div class="menu-item"><span>Churrasco Italiano</span> <span class="price">$6.500</span></div>
+        <div class="menu-item"><span>Chacarero XL</span> <span class="price">$6.800</span></div>
+        <div class="menu-item"><span>Barros Luco</span> <span class="price">$6.200</span></div>
+
+        <h2 class="category-title">Papas & Extras</h2>
+        <div class="menu-item"><span>Papas Fritas Grandes</span> <span class="price">$4.500</span></div>
+        <div class="menu-item"><span>Nuggets x10</span> <span class="price">$3.800</span></div>
+        <div class="menu-item"><span>Aros de Cebolla</span> <span class="price">$3.200</span></div>
+
+        <h2 class="category-title">Para los Peques</h2>
+        <div class="menu-item"><span>Cajita Juanita</span> <span class="price">$4.900</span></div>
+        <div class="menu-item"><span>Mini Burger Simple</span> <span class="price">$3.500</span></div>
+
+        <h2 class="category-title">Bebidas</h2>
+        <div class="menu-item"><span>Bebida 1.5L</span> <span class="price">$2.500</span></div>
+        <div class="menu-item"><span>Jugo Natural</span> <span class="price">$3.000</span></div>
+
+        <h2 class="category-title">Aderezos Extra</h2>
+        <div class="menu-item"><span>Salsa Garlic (Ajo)</span> <span class="price">$500</span></div>
+        <div class="menu-item"><span>Pote de Queso Cheddar</span> <span class="price">$1.000</span></div>
+        <div class="menu-item"><span>Salsa Spicy</span> <span class="price">$500</span></div>
+        
         <h2 class="category-title">Promociones</h2>
         <div class="menu-item"><span>Dúo Burger XL</span> <span class="price">$13.000</span></div>
-        <div class="menu-item"><span>2x1 en Papas Fritas</span> <span class="price">$5.000</span></div>
         <div class="menu-item"><span>Mega Promo Familiar</span> <span class="price">$18.900</span></div>
     </div>
 
     <div class="action-section">
         <div class="map-container">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.456!2d-71.2000!3d-30.6000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDM2JzAwLjAiUyA3McKwMTInMDAuMCJX!5e0!3m2!1ses!2scl!4v17000000000002" 
-                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-            </iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.456!2d-71.2000!3d-30.6000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDM2JzAwLjAiUyA3McKwMTInMDAuMCJX!5e0!3m2!1ses!2scl!4v17000000000002" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
 
         <div class="btn-group">
-            <a href="https://wa.me/56944422261?text=Hola!%20Quiero%20hacer%20un%20pedido" class="btn-premium btn-wa-premium">
-                🟢 PEDIR POR WHATSAPP
-            </a>
+            <a href="https://wa.me/56944422261?text=Hola%20Doña%20Juanita!" class="btn-premium btn-wa-premium">🟢 WHATSAPP</a>
             <a href="tel:+56944422261" class="btn-premium btn-call">📞 LLAMAR</a>
             <a href="#" class="btn-premium btn-map">📍 UBICACIÓN</a>
         </div>
     </div>
 
     <a href="https://darappchile.github.io/catalogo/" class="btn-return">← Volver al Catálogo</a>
-
     <p style="color: rgba(255,255,255,0.4); font-size: 0.6rem; margin-bottom: 40px;">Powered by DarApp Chile</p>
 
 </body>
