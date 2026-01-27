@@ -10,27 +10,27 @@
         body { 
             margin: 0; 
             padding: 0; 
-            background-color: #ffc2d1; /* Rosa de fondo */
+            background-color: #ffc2d1; 
             font-family: 'Segoe UI', sans-serif;
             display: flex;
             justify-content: center;
-            /* Quitamos el overflow hidden para que en PC se pueda bajar si es necesario */
             min-height: 100vh;
         }
 
-        /* Contenedor principal que limita el ancho en PC para que no se deforme */
         .main-wrapper {
             width: 100%;
-            max-width: 500px; /* Ancho ideal tipo celular */
+            max-width: 500px; 
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-bottom: 100px; /* Espacio para que el botón no tape nada */
+            /* Ajuste para centrar más el contenido verticalmente */
+            padding-top: 60px; 
+            padding-bottom: 120px; 
         }
 
-        /* Letrero Superior */
+        /* Letrero Superior con más aire arriba */
         .header-extra {
-            padding: 30px 0 10px 0;
+            padding: 20px 0 20px 0;
             text-align: center;
             color: #d63384;
             font-family: 'Dancing Script', cursive;
@@ -43,61 +43,63 @@
             margin: 0 10px;
         }
 
-        /* Imagen Central */
         .image-container {
             width: 95%;
             display: flex;
             justify-content: center;
-            margin: 10px 0;
+            margin: 20px 0; /* Más separación entre el texto y la foto */
         }
 
         .catalog-img {
             width: 100%;
-            height: auto; /* IMPORTANTE: Así no se corta en PC */
+            height: auto; 
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
-        /* Botón Flotante Inferior */
+        /* Botón estilo Alfajor / Chocolate */
         .footer-action {
             position: fixed;
-            bottom: 20px;
+            bottom: 40px; /* Subido de 20px a 40px */
             width: 100%;
-            max-width: 500px; /* Se mantiene alineado con el contenido en PC */
+            max-width: 500px; 
             display: flex;
             justify-content: center;
             z-index: 999;
         }
 
         .btn-ws {
-            background: #ffffff;
-            color: #25d366;
-            padding: 10px 20px;
+            /* Degradado color chocolate y dulce de leche */
+            background: linear-gradient(135deg, #6d4c41, #3e2723); 
+            color: #ffffff;
+            padding: 12px 25px;
             text-decoration: none;
-            border-radius: 12px;
-            font-weight: 900;
+            border-radius: 50px; /* Más redondeado tipo alfajor */
+            font-weight: bold;
             font-size: 1.1rem;
             display: flex;
             align-items: center;
             gap: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            border: 3px solid #25d366;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            border: 2px solid #fff; /* Borde blanco para que resalte */
             width: 85%;
             justify-content: center;
-            transition: transform 0.2s;
+            transition: all 0.2s ease;
+        }
+
+        .btn-ws i {
+            color: #25d366; /* El logo de WhatsApp mantiene su color original */
+            font-size: 1.8rem;
         }
 
         .btn-ws:active {
             transform: scale(0.95);
         }
 
-        .btn-text-green {
-            background-color: #25d366;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 6px;
-            text-transform: uppercase;
-            font-size: 0.9rem;
+        /* Texto resaltado dentro del botón */
+        .btn-highlight {
+            color: #ffc2d1; /* Rosa claro para combinar con el fondo */
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -114,8 +116,8 @@
 
         <div class="footer-action">
             <a href="https://wa.me/56940166233?text=Hola%20Catalina,%20quiero%20hacer%20un%20pedido" class="btn-ws">
-                <i class="fab fa-whatsapp" style="font-size: 1.8rem;"></i> 
-                <span class="btn-text-green">PEDIR POR WHATSAPP</span>
+                <i class="fab fa-whatsapp"></i> 
+                <span class="btn-highlight">PEDIR POR WHATSAPP</span>
             </a>
         </div>
     </div>
