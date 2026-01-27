@@ -9,61 +9,64 @@
         body { 
             margin: 0; 
             padding: 0; 
-            background-color: #ffeef2; 
+            background-color: #ffeef2; /* El rosa idéntico al de tu imagen */
             display: flex;
             flex-direction: column;
             height: 100vh;
+            font-family: Arial, sans-serif;
             overflow: hidden;
         }
 
+        /* Contenedor de la imagen */
         .image-container {
             flex: 1; 
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
-            padding: 5px; /* Pequeño margen para que no toque los bordes */
+            padding: 10px;
+            box-sizing: border-box;
         }
 
         .catalog-img {
             max-width: 100%;
             max-height: 100%;
-            /* 'contain' hace que la imagen se vea ENTERA siempre */
-            object-fit: contain; 
-            display: block;
+            object-fit: contain; /* Para que se vea ENTERA sin cortarse */
+            border-radius: 10px;
         }
 
+        /* Barra blanca inferior donde flota el botón */
         .action-bar {
-            background-color: #ffdce5; 
-            padding: 15px 0;
+            background-color: white; 
+            padding: 20px 0;
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
         }
 
+        /* El botón verde redondeado */
         .btn-ws {
-            background-color: #25d366;
+            background-color: #78c850; /* Verde manzana como el de la imagen */
             color: white;
-            padding: 12px 25px;
+            padding: 15px 40px;
             text-decoration: none;
             border-radius: 50px;
-            font-family: Arial, sans-serif;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 1.2rem;
             display: flex;
             align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            gap: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
 
     <div class="image-container">
-        <img src="alfajores.png" class="catalog-img" alt="Catalogo">
+        <img src="alfajores.png" class="catalog-img" alt="Alfajores">
     </div>
 
     <div class="action-bar">
