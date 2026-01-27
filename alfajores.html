@@ -3,65 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Alfajores Catalina | DarApp</title>
+    <title>Alfajores Catalina - DarApp</title>
     <style>
         body { 
             margin: 0; 
             padding: 0; 
-            /* Esto obliga a la imagen a cubrir TODA la pantalla */
-            background: url('alfajores.png') no-repeat center center;
-            background-size: cover; 
+            /* RELLENO: Usamos el rosa exacto de tu imagen para los bordes */
+            background-color: #ffc2d1; 
+            display: flex;
+            flex-direction: column;
             height: 100vh;
-            width: 100vw;
-            display: flex;
-            flex-direction: column;
             overflow: hidden;
+            font-family: sans-serif;
         }
 
-        /* Capa transparente para que el contenido respire */
-        .content-overlay {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1); /* Brillo sutil */
-        }
-
-        .action-area {
+        .image-container {
+            flex: 1; 
             display: flex;
             justify-content: center;
-            padding-bottom: 30px;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .catalog-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Esto la centra sin deformarla */
+            border-radius: 10px;
+        }
+
+        .action-bar {
+            background-color: white; /* Barra blanca limpia abajo */
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
         }
 
         .btn-ws {
             background-color: #25d366;
             color: white;
-            padding: 18px 35px;
+            padding: 15px 35px;
             text-decoration: none;
             border-radius: 50px;
-            font-family: sans-serif;
             font-weight: bold;
             font-size: 1.1rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
     </style>
 </head>
 <body>
-
-    <div class="content-overlay">
-        <div></div> 
-
-        <div class="action-area">
-            <a href="https://wa.me/56940166233?text=Hola%20Catalina,%20vi%20tu%20catálogo%20y%20quiero%20hacer%20un%20pedido" class="btn-ws">
-                🟢 PEDIR POR WHATSAPP
-            </a>
-        </div>
+    <div class="image-container">
+        <img src="alfajores.png" class="catalog-img" alt="Catalogo Alfajores">
     </div>
-
+    <div class="action-bar">
+        <a href="https://wa.me/56940166233?text=Hola%20Catalina,%20quiero%20hacer%20un%20pedido" class="btn-ws">
+            PEDIR POR WHATSAPP
+        </a>
+    </div>
 </body>
 </html>
