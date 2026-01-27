@@ -3,167 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DARAPP | Banda Musical</title>
+    <title>PEKADORES | Gira 2026</title>
     <style>
         :root {
-            --azul-fondo: #0a1128;
-            --purpura-neon: #a855f7;
-            --blanco: #ffffff;
-            --tarjeta-bg: #161b22;
-            --rojo-mapa: #e11d48;
-            --azul-call: #1e3a8a;
+            --rojo-pasion: #ff003c;
+            --dorado-metal: #ffd700;
+            --oscuro-total: #0a0a0a;
+            --blanco-humo: #f5f5f5;
+            --neon-azul: #00f2fe;
         }
 
         body {
-            background-color: var(--azul-fondo);
-            color: var(--blanco);
-            font-family: 'Inter', sans-serif;
             margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
+            padding: 0;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), 
+                        url('concierto.png'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--blanco-humo);
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        header { text-align: center; margin-bottom: 30px; padding-top: 20px; }
-        .logo-negocio { 
-            height: 120px; 
-            margin-bottom: 15px; 
-            border-radius: 20px;
-            filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.4));
-        }
-        
-        h1 { color: var(--purpura-neon); font-size: 1.8rem; margin: 0; letter-spacing: 1px; }
-        .subtitulo { opacity: 0.8; font-size: 1rem; color: #94a3b8; }
-
-        /* CONTENEDOR DE EVENTOS */
-        .ofertas-container { width: 100%; max-width: 500px; margin-top: 10px; }
-        .titulo-seccion { 
-            text-align: center; 
-            margin-bottom: 25px; 
-            color: var(--purpura-neon); 
-            font-size: 1.4rem;
+        /* Título superior estilizado */
+        .nombre-banda {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--dorado-metal);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            margin: 40px 0 10px 0;
+            text-shadow: 3px 3px 0px rgba(0,0,0,1), 0 0 25px rgba(255, 215, 0, 0.6);
+            font-style: italic;
+            letter-spacing: -1px;
         }
 
-        .oferta-card {
-            background: var(--tarjeta-bg);
-            border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 15px;
-            border: 1px solid rgba(255,255,255,0.05);
-            border-left: 6px solid var(--purpura-neon);
+        .tour-info {
+            padding-bottom: 20px;
+            color: var(--neon-azul);
+            font-size: 0.8rem;
+            letter-spacing: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-shadow: 0px 0px 10px var(--neon-azul);
+        }
+
+        /* Foto del grupo sola y limpia */
+        .header-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 40px 0;
+            width: 100%;
+        }
+
+        .letrero-pekadores {
+            max-width: 550px;
+            width: 90%;
+            height: auto;
+            border-radius: 10px;
+            filter: drop-shadow(0px 10px 30px rgba(0,0,0,0.8));
+        }
+
+        .menu-container {
+            max-width: 450px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .seccion-titulo {
+            color: var(--dorado-metal);
+            margin: 40px 0 15px 0;
+            text-transform: uppercase;
+            font-size: 1.4rem;
+            font-weight: 900;
+            border-bottom: 2px solid var(--dorado-metal);
+            padding-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,1);
+        }
+
+        .item-servicio {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: transform 0.2s;
-        }
-        .oferta-card:hover { transform: scale(1.02); }
-
-        .oferta-info h3 { margin: 0; font-size: 1.1rem; color: var(--blanco); }
-        .oferta-info p { margin: 5px 0 0; color: #8b949e; font-size: 0.85rem; }
-        .precio { color: var(--purpura-neon); font-size: 1rem; font-weight: bold; text-align: right; min-width: 70px; }
-
-        /* SECCIÓN DE ACCIÓN (MAPA Y BOTONES) */
-        .action-section { 
-            width: 100%; 
-            max-width: 500px; 
-            margin-top: 30px; 
-            background: #1c2128; 
-            padding: 20px; 
-            border-radius: 25px;
-            box-sizing: border-box;
-        }
-        
-        .map-container {
-            width: 100%;
-            height: 180px;
-            border-radius: 15px;
-            overflow: hidden;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
+            padding: 14px 0;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            text-shadow: 2px 2px 8px rgba(0,0,0,1);
         }
 
-        .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        
-        .btn { 
-            padding: 16px; 
-            border-radius: 15px; 
-            text-decoration: none; 
-            color: white; 
-            font-weight: bold; 
-            text-align: center; 
+        .disponibilidad { 
+            color: var(--neon-azul); 
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* Botón de Mapa estilizado */
+        .btn-mapa {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            font-size: 0.9rem;
+            margin: 25px auto;
+            padding: 15px;
+            width: 80%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--neon-azul);
+            border-radius: 12px;
+            color: var(--neon-azul);
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.3s;
         }
-        .btn-llamar { background: var(--azul-call); box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4); }
-        .btn-mapa { background: var(--rojo-mapa); box-shadow: 0 4px 15px rgba(225, 29, 72, 0.4); }
 
-        .btn-volver { 
-            margin: 40px 0; 
-            color: #94a3b8; 
-            text-decoration: none; 
-            font-size: 0.9rem; 
-            transition: color 0.3s;
+        .action-section {
+            max-width: 450px;
+            margin: 30px auto;
+            padding: 0 20px;
         }
-        .btn-volver:hover { color: var(--purpura-neon); }
+
+        .video-container {
+            width: 100%;
+            height: 220px;
+            border-radius: 20px;
+            border: 2px solid var(--dorado-metal);
+            overflow: hidden;
+            margin-bottom: 25px;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .btn-pekador {
+            padding: 18px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: white;
+            font-weight: 900;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-contratar {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #ff003c 0%, #990024 100%);
+            box-shadow: 0 5px 15px rgba(255, 0, 60, 0.4);
+            font-size: 1.1rem;
+        }
+
+        .btn-ig { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
+        .btn-yt { background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%); }
+
+        .btn-return {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: var(--blanco-humo);
+            text-decoration: none;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 10px 25px;
+            border-radius: 50px;
+            background: rgba(0,0,0,0.5);
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <img src="cat-banda.png" alt="Banda Musical" class="logo-negocio">
-        <h1>Banda Rock Pro</h1>
-        <p class="subtitulo">Música en Vivo y Eventos Especiales</p>
-    </header>
+    <h1 class="nombre-banda">GRUPO PEKADORES</h1>
+    <div class="tour-info">🔥 GIRA VERANO 2026 🔥</div>
 
-    <div class="ofertas-container">
-        <h2 class="titulo-seccion">Próximos Shows</h2>
+    <div class="header-container">
+        <img src="foto-pekadores-letrero.png" alt="Pekadores" class="letrero-pekadores">
+    </div>
+
+    <div class="menu-container">
+        <h2 class="seccion-titulo">Nuestros Shows</h2>
+        <div class="item-servicio"><span>🎹 Show Completo</span> <span class="disponibilidad">60 MIN</span></div>
+        <div class="item-servicio"><span>🎺 Set Matrimonios</span> <span class="disponibilidad">90 MIN</span></div>
         
-        <div class="oferta-card">
-            <div class="oferta-info">
-                <h3>Festival del Rock</h3>
-                <p>Escenario Principal - 21:00 hrs</p>
-            </div>
-            <div class="precio">15 ENE</div>
-        </div>
+        <h2 class="seccion-titulo">Éxitos Musicales</h2>
+        <div class="item-servicio"><span>1. Una Coqueta</span> <span class="disponibilidad">HIT</span></div>
+        <div class="item-servicio"><span>2. Por qué el amor se va</span> <span class="disponibilidad">CLÁSICO</span></div>
+        <div class="item-servicio"><span>3. Morena</span> <span class="disponibilidad">NUEVO</span></div>
 
-        <div class="oferta-card">
-            <div class="oferta-info">
-                <h3>Noche de Jazz & Blues</h3>
-                <p>Club de Música Local</p>
-            </div>
-            <div class="precio">22 ENE</div>
-        </div>
-
-        <div class="oferta-card">
-            <div class="oferta-info">
-                <h3>Evento Privado</h3>
-                <p>Reserva disponible para tu boda</p>
-            </div>
-            <div class="precio">FEB 2026</div>
-        </div>
+        <a href="https://www.google.com/maps?q=Chile" target="_blank" class="btn-mapa">📍 Ver Ubicación / Mapa</a>
     </div>
 
     <div class="action-section">
-        <div class="map-container">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.073539744473!2d-70.6506306!3d-33.4488897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDI2JzU2LjAiUyA3MMKwMzknMDIuMyJX!5e0!3m2!1ses!2scl!4v1700000000000!5m2!1ses!2scl" 
-                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-            </iframe>
+        <div class="video-container">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
         </div>
 
         <div class="btn-group">
-            <a href="tel:56944422261" class="btn btn-llamar">📞 CONTRATAR</a>
-            <a href="#" class="btn btn-mapa">📍 TICKETS</a>
+            <a href="https://wa.me/56944422261?text=Hola%20Pekadores!" class="btn-pekador btn-contratar">🕺 CONTRATACIONES</a>
+            <a href="#" class="btn-pekador btn-ig">📸 INSTAGRAM</a>
+            <a href="#" class="btn-pekador btn-yt">🎬 YOUTUBE</a>
         </div>
     </div>
 
-    <a href="index.html" class="btn-volver">← Volver al Catálogo Principal</a>
+    <a href="https://darappchile.github.io/catalogo/" class="btn-return">← Volver al Catálogo</a>
+    <p style="color: rgba(255,255,255,0.4); font-size: 0.6rem; margin-bottom: 40px;">Powered by DarApp Chile</p>
 
 </body>
 </html>
