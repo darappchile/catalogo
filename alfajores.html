@@ -2,64 +2,123 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alfajores Catalina - DarApp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body { 
             margin: 0; 
             padding: 0; 
-            /* RELLENO: Usamos el rosa exacto de tu imagen para los bordes */
-            background-color: #ffc2d1; 
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            overflow: hidden;
-            font-family: sans-serif;
-        }
-
-        .image-container {
-            flex: 1; 
+            background-color: #ffc2d1; /* Rosa de fondo */
+            font-family: 'Segoe UI', sans-serif;
             display: flex;
             justify-content: center;
+            /* Quitamos el overflow hidden para que en PC se pueda bajar si es necesario */
+            min-height: 100vh;
+        }
+
+        /* Contenedor principal que limita el ancho en PC para que no se deforme */
+        .main-wrapper {
+            width: 100%;
+            max-width: 500px; /* Ancho ideal tipo celular */
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            padding: 10px;
+            padding-bottom: 100px; /* Espacio para que el botón no tape nada */
+        }
+
+        /* Letrero Superior */
+        .header-extra {
+            padding: 30px 0 10px 0;
+            text-align: center;
+            color: #d63384;
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+        }
+
+        .corazon {
+            font-size: 1.5rem;
+            vertical-align: middle;
+            margin: 0 10px;
+        }
+
+        /* Imagen Central */
+        .image-container {
+            width: 95%;
+            display: flex;
+            justify-content: center;
+            margin: 10px 0;
         }
 
         .catalog-img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain; /* Esto la centra sin deformarla */
-            border-radius: 10px;
+            width: 100%;
+            height: auto; /* IMPORTANTE: Así no se corta en PC */
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
-        .action-bar {
-            background-color: white; /* Barra blanca limpia abajo */
-            padding: 15px 0;
+        /* Botón Flotante Inferior */
+        .footer-action {
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
+            max-width: 500px; /* Se mantiene alineado con el contenido en PC */
             display: flex;
             justify-content: center;
-            box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+            z-index: 999;
         }
 
         .btn-ws {
+            background: #ffffff;
+            color: #25d366;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 3px solid #25d366;
+            width: 85%;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .btn-ws:active {
+            transform: scale(0.95);
+        }
+
+        .btn-text-green {
             background-color: #25d366;
             color: white;
-            padding: 15px 35px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 4px 12px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
-    <div class="image-container">
-        <img src="alfajores.png" class="catalog-img" alt="Catalogo Alfajores">
+
+    <div class="main-wrapper">
+        <div class="header-extra">
+            <span class="corazon">♥</span>Te amo<span class="corazon">♥</span>
+        </div>
+
+        <div class="image-container">
+            <img src="alfajores.png" class="catalog-img" alt="Catalogo Alfajores">
+        </div>
+
+        <div class="footer-action">
+            <a href="https://wa.me/56940166233?text=Hola%20Catalina,%20quiero%20hacer%20un%20pedido" class="btn-ws">
+                <i class="fab fa-whatsapp" style="font-size: 1.8rem;"></i> 
+                <span class="btn-text-green">PEDIR POR WHATSAPP</span>
+            </a>
+        </div>
     </div>
-    <div class="action-bar">
-        <a href="https://wa.me/56940166233?text=Hola%20Catalina,%20quiero%20hacer%20un%20pedido" class="btn-ws">
-            PEDIR POR WHATSAPP
-        </a>
-    </div>
+
 </body>
 </html>
