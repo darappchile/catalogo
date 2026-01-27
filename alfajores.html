@@ -3,76 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Alfajores Catalina - DarApp</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Alfajores Catalina | DarApp</title>
     <style>
         body { 
             margin: 0; 
             padding: 0; 
-            background-color: #ffeef2; /* El rosa idéntico al de tu imagen */
+            /* Esto obliga a la imagen a cubrir TODA la pantalla */
+            background: url('alfajores.png') no-repeat center center;
+            background-size: cover; 
+            height: 100vh;
+            width: 100vw;
             display: flex;
             flex-direction: column;
-            height: 100vh;
-            font-family: Arial, sans-serif;
             overflow: hidden;
         }
 
-        /* Contenedor de la imagen */
-        .image-container {
-            flex: 1; 
-            width: 100%;
+        /* Capa transparente para que el contenido respire */
+        .content-overlay {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1); /* Brillo sutil */
+        }
+
+        .action-area {
             display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 10px;
-            box-sizing: border-box;
+            padding-bottom: 30px;
         }
 
-        .catalog-img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain; /* Para que se vea ENTERA sin cortarse */
-            border-radius: 10px;
-        }
-
-        /* Barra blanca inferior donde flota el botón */
-        .action-bar {
-            background-color: white; 
-            padding: 20px 0;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
-        }
-
-        /* El botón verde redondeado */
         .btn-ws {
-            background-color: #78c850; /* Verde manzana como el de la imagen */
+            background-color: #25d366;
             color: white;
-            padding: 15px 40px;
+            padding: 18px 35px;
             text-decoration: none;
             border-radius: 50px;
+            font-family: sans-serif;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            text-transform: uppercase;
             display: flex;
             align-items: center;
-            gap: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            text-transform: uppercase;
+            gap: 10px;
         }
     </style>
 </head>
 <body>
 
-    <div class="image-container">
-        <img src="alfajores.png" class="catalog-img" alt="Alfajores">
-    </div>
+    <div class="content-overlay">
+        <div></div> 
 
-    <div class="action-bar">
-        <a href="https://wa.me/56940166233?text=Hola%20Catalina,%20quiero%20hacer%20un%20pedido" class="btn-ws">
-            <i class="fab fa-whatsapp"></i> ¡HAZ TU PEDIDO YA!
-        </a>
+        <div class="action-area">
+            <a href="https://wa.me/56940166233?text=Hola%20Catalina,%20vi%20tu%20catálogo%20y%20quiero%20hacer%20un%20pedido" class="btn-ws">
+                🟢 PEDIR POR WHATSAPP
+            </a>
+        </div>
     </div>
 
 </body>
