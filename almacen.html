@@ -3,166 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DARAPP | Almacén Express</title>
+    <title>La Fabella | Abarrotes</title>
     <style>
         :root {
-            --azul-fondo: #0a1128;
-            --naranja-neon: #fb923c;
-            --blanco: #ffffff;
-            --tarjeta-bg: #161b22;
-            --rojo-mapa: #e11d48;
-            --azul-call: #1e3a8a;
+            --azul-fuerte: #004a99;
+            --celeste: #00a8ff;
+            --dorado: #ffd700;
+            --verde-wa: #25d366;
         }
 
         body {
-            background-color: var(--azul-fondo);
-            color: var(--blanco);
-            font-family: 'Inter', sans-serif;
             margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
+            padding: 0;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1534723452862-4c874018d66d?q=80&w=1000'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            text-align: center;
+            min-height: 100vh;
         }
 
-        header { text-align: center; margin-bottom: 30px; padding-top: 20px; }
-        .logo-negocio { 
-            height: 120px; 
-            margin-bottom: 15px; 
-            filter: drop-shadow(0 0 10px rgba(251, 146, 60, 0.3));
-        }
-        
-        h1 { color: var(--naranja-neon); font-size: 1.8rem; margin: 0; letter-spacing: 1px; }
-        .subtitulo { opacity: 0.8; font-size: 1rem; color: #94a3b8; }
-
-        /* CONTENEDOR DE OFERTAS */
-        .ofertas-container { width: 100%; max-width: 500px; margin-top: 10px; }
-        .titulo-seccion { 
-            text-align: center; 
-            margin-bottom: 25px; 
-            color: var(--naranja-neon); 
-            font-size: 1.4rem;
+        .info-superior {
+            padding: 15px 10px;
+            background-color: var(--azul-fuerte);
+            color: white;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            font-weight: bold;
         }
 
-        .oferta-card {
-            background: var(--tarjeta-bg);
+        .header-container {
+            padding: 30px 10px;
+        }
+
+        .logo-rectangular {
+            display: inline-block;
+            padding: 20px 40px;
+            background: white;
+            border-radius: 10px;
+            border-bottom: 5px solid var(--celeste);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+
+        .nombre-almacen {
+            color: var(--azul-fuerte);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .menu-container {
+            max-width: 450px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.45);
             border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 15px;
-            border: 1px solid rgba(255,255,255,0.05);
-            border-left: 6px solid var(--naranja-neon);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: transform 0.2s;
-        }
-        .oferta-card:hover { transform: scale(1.02); }
-
-        .oferta-info h3 { margin: 0; font-size: 1.2rem; color: var(--blanco); }
-        .oferta-info p { margin: 5px 0 0; color: #8b949e; font-size: 0.9rem; }
-        .precio { color: var(--naranja-neon); font-size: 1.4rem; font-weight: bold; }
-
-        /* SECCIÓN DE ACCIÓN (MAPA Y BOTONES) */
-        .action-section { 
-            width: 100%; 
-            max-width: 500px; 
-            margin-top: 30px; 
-            background: #1c2128; 
-            padding: 20px; 
-            border-radius: 25px;
-            box-sizing: border-box;
-        }
-        
-        .map-container {
-            width: 100%;
-            height: 200px;
-            border-radius: 15px;
-            overflow: hidden;
-            margin-bottom: 20px;
+            backdrop-filter: blur(8px);
+            margin-bottom: 30px;
             border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        
-        .btn { 
-            padding: 16px; 
-            border-radius: 15px; 
-            text-decoration: none; 
-            color: white; 
-            font-weight: bold; 
-            text-align: center; 
+        .category-title {
+            color: var(--celeste);
+            margin: 25px 0 10px 0;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--celeste);
+            padding-bottom: 5px;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            text-shadow: 1px 1px 2px black;
+        }
+
+        .price { 
+            color: var(--dorado); 
+            font-weight: bold;
+        }
+
+        .horario-atencion {
+            background: rgba(255, 255, 255, 0.1);
+            max-width: 410px;
+            margin: 20px auto;
+            padding: 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            border: 1px dashed var(--dorado);
+        }
+
+        .map-box {
+            max-width: 450px;
+            margin: 0 auto 20px auto;
+            height: 200px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--azul-fuerte);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .action-section {
+            max-width: 450px;
+            margin: 0 auto 40px auto;
+            padding: 0 20px;
+        }
+
+        .btn-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .btn-premium {
+            padding: 15px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 0.8rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            font-size: 0.95rem;
+            text-transform: uppercase;
+            transition: 0.3s;
         }
-        .btn-llamar { background: var(--azul-call); box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4); }
-        .btn-mapa { background: var(--rojo-mapa); box-shadow: 0 4px 15px rgba(225, 29, 72, 0.4); }
 
-        .btn-volver { 
-            margin: 40px 0; 
-            color: #94a3b8; 
-            text-decoration: none; 
-            font-size: 0.9rem; 
-            transition: color 0.3s;
+        .btn-wa-premium {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            margin-bottom: 5px;
         }
-        .btn-volver:hover { color: var(--naranja-neon); }
+
+        .btn-call { background: #007bff; }
+        .btn-map { background: #6c757d; }
+
+        /* ESTILO BOTÓN REGRESAR */
+        .btn-regresar {
+            grid-column: span 2;
+            background: rgba(255,255,255,0.15);
+            margin-top: 15px;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+        }
+
+        .btn-regresar:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+        .footer-tag {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.7rem;
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <img src="cat-almacen.png" alt="Almacén" class="logo-negocio">
-        <h1>Almacén Express</h1>
-        <p class="subtitulo">Tus productos básicos a un click</p>
-    </header>
+    <div class="info-superior">
+        🏠 PRODUCTOS FRESCOS TODOS LOS DÍAS
+    </div>
 
-    <div class="ofertas-container">
-        <h2 class="titulo-seccion">Ofertas de la Semana</h2>
-        
-        <div class="oferta-card">
-            <div class="oferta-info">
-                <h3>Aceite Maravilla</h3>
-                <p>Botella 1 Litro</p>
-            </div>
-            <div class="precio">$2.100</div>
+    <div class="header-container">
+        <div class="logo-rectangular">
+            <h1 class="nombre-almacen">LA FABELLA</h1>
         </div>
+    </div>
 
-        <div class="oferta-card">
-            <div class="oferta-info">
-                <h3>Arroz Grado 1</h3>
-                <p>Bolsa 1 Kilo</p>
-            </div>
-            <div class="precio">$1.250</div>
-        </div>
+    <div class="menu-container">
+        <h2 class="category-title">Básicos del Hogar</h2>
+        <div class="menu-item"><span>Aceite Vegetal 1L</span> <span class="price">$2.100</span></div>
+        <div class="menu-item"><span>Arroz Grado 1 (1kg)</span> <span class="price">$1.250</span></div>
+        <div class="menu-item"><span>Azúcar Granulada (1kg)</span> <span class="price">$1.100</span></div>
+        <div class="menu-item"><span>Harina con Polvos (1kg)</span> <span class="price">$1.150</span></div>
+        <div class="menu-item"><span>Fideos Espagueti</span> <span class="price">$850</span></div>
+        <div class="menu-item"><span>Sal Fina (1kg)</span> <span class="price">$600</span></div>
+        <div class="menu-item"><span>Salsa de Tomate</span> <span class="price">$550</span></div>
+        <div class="menu-item"><span>Legumbres (1kg)</span> <span class="price">$2.400</span></div>
 
-        <div class="oferta-card">
-            <div class="oferta-info">
-                <h3>Pack Bebidas</h3>
-                <p>6 Latas Variedades</p>
-            </div>
-            <div class="precio">$4.500</div>
+        <h2 class="category-title">Lácteos y Fríos</h2>
+        <div class="menu-item"><span>Leche Entera 1L</span> <span class="price">$1.050</span></div>
+        <div class="menu-item"><span>Bandeja de Huevos (30u)</span> <span class="price">$6.500</span></div>
+        <div class="menu-item"><span>Mantequilla 250g</span> <span class="price">$2.400</span></div>
+        <div class="menu-item"><span>Queso Laminado 250g</span> <span class="price">$2.800</span></div>
+        <div class="menu-item"><span>Yogurt Pack (6u)</span> <span class="price">$1.500</span></div>
+        <div class="menu-item"><span>Jamón de Pavo (100g)</span> <span class="price">$1.400</span></div>
+        <div class="menu-item"><span>Vienesas Pack</span> <span class="price">$1.800</span></div>
+        <div class="menu-item"><span>Crema de Leche</span> <span class="price">$950</span></div>
+
+        <h2 class="category-title">Aseo y Limpieza</h2>
+        <div class="menu-item"><span>Detergente 3L</span> <span class="price">$7.990</span></div>
+        <div class="menu-item"><span>Cloro Tradicional 1L</span> <span class="price">$900</span></div>
+        <div class="menu-item"><span>Papel Higiénico (4u)</span> <span class="price">$2.200</span></div>
+        <div class="menu-item"><span>Lavalozas 750ml</span> <span class="price">$1.500</span></div>
+        <div class="menu-item"><span>Limpiador Pisos 1L</span> <span class="price">$1.300</span></div>
+        <div class="menu-item"><span>Jabón Líquido</span> <span class="price">$1.100</span></div>
+        <div class="menu-item"><span>Esponja Cocina (2u)</span> <span class="price">$800</span></div>
+        <div class="menu-item"><span>Desinfectante Spray</span> <span class="price">$2.500</span></div>
+
+        <h2 class="category-title">Bebidas y Pan</h2>
+        <div class="menu-item"><span>Pan Batido (kg)</span> <span class="price">$2.100</span></div>
+        <div class="menu-item"><span>Pan Hallulla (kg)</span> <span class="price">$2.100</span></div>
+        <div class="menu-item"><span>Coca Cola 1.5L</span> <span class="price">$1.850</span></div>
+        <div class="menu-item"><span>Bebida Fruna 3L</span> <span class="price">$1.500</span></div>
+        <div class="menu-item"><span>Agua Mineral 1.5L</span> <span class="price">$1.000</span></div>
+        <div class="menu-item"><span>Néctar de Fruta 1L</span> <span class="price">$1.200</span></div>
+        <div class="menu-item"><span>Cerveza Lata 473ml</span> <span class="price">$1.100</span></div>
+        <div class="menu-item"><span>Energética 500ml</span> <span class="price">$1.200</span></div>
+
+        <div class="horario-atencion">
+            <span style="color: var(--dorado); font-weight: bold;">🕒 HORARIO DE ATENCIÓN:</span><br>
+            Lunes a Sábado: 09:00 - 21:00<br>
+            Domingos y Festivos: 10:00 - 15:00
         </div>
+    </div>
+
+    <div class="map-box">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1!2d1!3d1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDAwJzAwLjAiTiA3N8KwMDAnMDAuMCJX!5e0!3m2!1ses!2scl!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
 
     <div class="action-section">
-        <div class="map-container">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.1!2d-70.6!3d-33.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDI0JzAwLjAiUyA3MMKwMzYnMDAuMCJX!5e0!3m2!1ses!2scl!4v1620000000000!5m2!1ses!2scl" 
-                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-            </iframe>
-        </div>
-
         <div class="btn-group">
-            <a href="tel:56944422261" class="btn btn-llamar">📞 PEDIR</a>
-            <a href="#" class="btn btn-mapa">📍 DIRECCIÓN</a>
+            <a href="https://wa.me/569XXXXXXXX?text=Hola%20La%20Fabella!%20Quisiera%20hacer%20un%20pedido" class="btn-premium btn-wa-premium">🟢 PEDIR POR WHATSAPP</a>
+            <a href="tel:+569XXXXXXXX" class="btn-premium btn-call">📞 LLAMAR</a>
+            <a href="#" class="btn-premium btn-map">📍 CÓMO LLEGAR</a>
+            
+            <a href="javascript:history.back()" class="btn-premium btn-regresar">⬅️ REGRESAR AL MENÚ</a>
         </div>
+        
+        <p class="footer-tag">Powered by DarApp Chile</p>
     </div>
-
-    <a href="index.html" class="btn-volver">← Volver al Catálogo Principal</a>
 
 </body>
 </html>
