@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DARAPP | Music Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Poppins', sans-serif; background-color: #050505; color: white; }
+        
+        /* CABECERA CON ESTILO DE CONCIERTO */
+        .header-band {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(230, 57, 70, 0.4)), 
+                              url('https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=1000');
+            background-size: cover; background-position: center;
+            text-align: center; padding: 80px 20px;
+            border-bottom: 4px solid #e63946;
+        }
+
+        .brand-badge {
+            display: inline-block; background: #e63946; color: white; padding: 5px 15px;
+            border-radius: 4px; font-size: 0.75rem; text-transform: uppercase;
+            letter-spacing: 3px; margin-bottom: 10px; font-weight: bold;
+        }
+
+        .main-title {
+            font-family: 'Bebas Neue', sans-serif; font-size: 5rem;
+            margin: 0; line-height: 0.9; letter-spacing: 4px;
+            text-shadow: 0 0 20px rgba(230, 57, 70, 0.6);
+        }
+
+        .container { max-width: 600px; margin: 0 auto; padding: 25px; }
+
+        /* SECCIONES DE SERVICIOS/REPERTORIO */
+        .setlist-category {
+            font-family: 'Bebas Neue', sans-serif;
+            color: #e63946; font-size: 2rem;
+            margin: 40px 0 15px; border-bottom: 1px solid rgba(230, 57, 70, 0.3);
+        }
+
+        .music-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px; padding: 15px;
+            margin-bottom: 12px; display: flex; align-items: center;
+            transition: 0.3s;
+        }
+
+        .music-card:hover {
+            background: rgba(230, 57, 70, 0.1);
+            border-color: #e63946;
+            transform: translateX(10px);
+        }
+
+        .instrument-icon {
+            font-size: 1.8rem; margin-right: 20px;
+            color: #e63946;
+        }
+
+        .info h3 { margin: 0; font-size: 1.1rem; text-transform: uppercase; }
+        .info p { margin: 2px 0; font-size: 0.8rem; opacity: 0.7; }
+
+        /* BOTÓN DE CONTRATACIÓN */
+        .btn-booking {
+            display: block; text-align: center; background: white; color: black;
+            padding: 20px; border-radius: 5px; text-decoration: none;
+            font-weight: bold; margin: 40px 0; font-size: 1.2rem;
+            text-transform: uppercase; letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .btn-booking:hover { background: #e63946; color: white; }
+
+        .darapp-pro {
+            text-align: center; padding: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px; background: linear-gradient(to right, #000, #111);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-band">
+        <div class="brand-badge">Sistemas DARAPP</div>
+        <h1 class="main-title">MUSIC SHOW</h1>
+        <p style="letter-spacing: 2px; opacity: 0.8;">"El ritmo que tu evento necesita"</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="setlist-category">Servicios Musicales</div>
+        
+        <div class="music-card">
+            <div class="instrument-icon">🎸</div>
+            <div class="info">
+                <h3>Show en Vivo</h3>
+                <p>Banda completa para eventos y fiestas</p>
+            </div>
+        </div>
+
+        <div class="music-card">
+            <div class="instrument-icon">🎹</div>
+            <div class="info">
+                <h3>Producción Musical</h3>
+                <p>Arreglos, mezcla y grabación digital</p>
+            </div>
+        </div>
+
+        <div class="music-card">
+            <div class="instrument-icon">🥁</div>
+            <div class="info">
+                <h3>Clases de Instrumento</h3>
+                <p>Bajo, Teclado, Batería y más</p>
+            </div>
+        </div>
+
+        <a href="#" class="btn-booking">Reserva tu Fecha</a>
+
+        <div class="darapp-pro">
+            <p style="margin:0; font-size: 0.8rem; opacity: 0.6;">Potenciado por</p>
+            <h3 style="margin:5px 0; color:#e63946; letter-spacing: 2px;">DARAPP CHILE</h3>
+            <p style="font-size: 0.7rem;">Soluciones Digitales para Artistas</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
