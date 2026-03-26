@@ -3,214 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doña Juanita | Comida Rápida</title>
+    <title>DARAPP | Fast Food Delivery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --rojo-principal: #ff0000;
-            --dorado: #d4af37;
-            --crema: #fff5e6;
-            --verde-wa: #25d366;
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Poppins', sans-serif; background-color: #fdfcf0; color: #333; }
+
+        /* HEADER EXPLOSIVO */
+        .food-header {
+            background-color: #ff4d00;
+            background-image: linear-gradient(rgba(255, 77, 0, 0.8), rgba(255, 77, 0, 0.9)), 
+                              url('https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1000');
+            background-size: cover; background-position: center;
+            color: white; text-align: center; padding: 60px 20px;
+            border-bottom-left-radius: 40px; border-bottom-right-radius: 40px;
         }
 
-        body {
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('ambur.png'); 
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: var(--crema);
-            font-family: 'Arial Black', sans-serif;
-            text-align: center;
-            overflow-x: hidden;
-            min-height: 100vh;
+        .brand-badge {
+            display: inline-block; background: white; color: #ff4d00; padding: 5px 15px;
+            border-radius: 50px; font-size: 0.75rem; text-transform: uppercase;
+            letter-spacing: 2px; margin-bottom: 10px; font-weight: 800;
         }
 
-        .info-superior {
-            padding: 25px 10px 10px 10px;
-            color: var(--dorado);
-            font-size: 0.85rem;
-            letter-spacing: 2px;
+        .main-title {
+            font-family: 'Bebas Neue', sans-serif; font-size: 4.5rem;
+            margin: 0; line-height: 0.9;
+        }
+
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+
+        /* ESTILO DE PRODUCTO "CHORREANTE" */
+        .food-card {
+            background: white; border-radius: 20px; padding: 12px;
+            margin-bottom: 20px; display: flex; align-items: center;
+            box-shadow: 0 10px 20px rgba(255, 77, 0, 0.1);
+            border: 2px solid transparent; transition: 0.3s;
+        }
+
+        .food-card:hover { border-color: #ff4d00; transform: scale(1.02); }
+
+        .food-img {
+            width: 100px; height: 100px; border-radius: 15px;
+            object-fit: cover; margin-right: 15px;
+        }
+
+        .food-info { flex-grow: 1; }
+        .food-info h3 { margin: 0; font-size: 1.1rem; color: #ff4d00; text-transform: uppercase; }
+        .food-info p { margin: 4px 0; font-size: 0.8rem; color: #666; line-height: 1.2; }
+        
+        .food-price {
+            font-size: 1.3rem; font-weight: 800; color: #333;
+            background: #fff3e0; padding: 5px 10px; border-radius: 10px;
+        }
+
+        /* BOTÓN DE PEDIDO RÁPIDO */
+        .btn-delivery {
+            display: block; text-align: center; background: #ff4d00; color: white;
+            padding: 20px; border-radius: 20px; text-decoration: none;
+            font-weight: bold; margin: 30px 0; font-size: 1.2rem;
+            box-shadow: 0 10px 25px rgba(255, 77, 0, 0.3);
             text-transform: uppercase;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
         }
 
-        .header-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-            width: 100%;
-        }
-
-        .logo-img {
-            max-width: 350px;
-            width: 90%;
-            height: auto;
-            margin-top: -10px;
-            filter: drop-shadow(0px 0px 20px rgba(255, 0, 0, 0.6));
-            animation: latido-logo 2.5s infinite ease-in-out;
-        }
-
-        @keyframes latido-logo {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-        }
-
-        .menu-container {
-            max-width: 450px;
-            margin: 0 auto;
-            padding: 0 20px 20px 20px;
-        }
-
-        .category-title {
-            color: var(--dorado);
-            margin: 30px 0 15px 0;
-            text-transform: uppercase;
-            font-size: 1.3rem;
-            border-bottom: 2px solid var(--dorado);
-            padding-bottom: 5px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-        }
-
-        .menu-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-            font-size: 1rem;
-            text-shadow: 2px 2px 5px rgba(0,0,0,1); 
-        }
-
-        .price { 
-            color: var(--dorado); 
-            font-weight: bold;
-            margin-left: 15px;
-        }
-
-        .badge-popular {
-            background: var(--rojo-principal);
-            color: white;
-            font-size: 0.6rem;
-            padding: 2px 6px;
-            border-radius: 4px;
-            margin-left: 5px;
-        }
-
-        .action-section {
-            max-width: 450px;
-            margin: 20px auto 40px auto;
-            padding: 0 20px;
-        }
-
-        .map-container {
-            width: 100%;
-            height: 180px;
-            border-radius: 20px;
-            border: 2px solid var(--rojo-principal);
-            overflow: hidden;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
-
-        .btn-group {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .btn-premium {
-            padding: 18px;
-            border-radius: 15px;
-            text-decoration: none;
-            color: white;
-            font-weight: 900;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .btn-wa-premium {
-            grid-column: span 2;
-            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
-        }
-
-        .btn-call { background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%); }
-        .btn-map { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
-
-        .btn-return {
-            display: inline-block;
-            margin-bottom: 30px;
-            color: var(--crema);
-            text-decoration: none;
-            font-size: 0.8rem;
-            border: 1px solid rgba(255,255,255,0.4);
-            padding: 8px 20px;
-            border-radius: 50px;
+        .darapp-tech {
+            background: #333; color: white; padding: 20px;
+            border-radius: 25px; text-align: center; margin-top: 40px;
         }
     </style>
 </head>
 <body>
 
-    <div class="info-superior">
-        🚀 CALIDAD PREMIUM - DOÑA JUANITA 🚀
-    </div>
+    <header class="food-header">
+        <div class="brand-badge">Sistemas DARAPP</div>
+        <h1 class="main-title">FAST FOOD</h1>
+        <p style="font-weight: 600; letter-spacing: 1px;">¡Caliente, Rápido y Sabroso!</p>
+    </header>
 
-    <div class="header-container">
-        <img src="logo-juanita.png" alt="Doña Juanita" class="logo-img">
-    </div>
-
-    <div class="menu-container">
-        <h2 class="category-title">Especialidades</h2>
-        <div class="menu-item"><span>Chorrillana Juanita <span class="badge-popular">🔥 TOP</span></span> <span class="price">$12.500</span></div>
-        <div class="menu-item"><span>Burger XL Tocino</span> <span class="price">$7.200</span></div>
-        <div class="menu-item"><span>Completo Italiano</span> <span class="price">$2.500</span></div>
+    <div class="container">
         
-        <h2 class="category-title">Sánguiches Chilenos</h2>
-        <div class="menu-item"><span>Churrasco Italiano</span> <span class="price">$6.500</span></div>
-        <div class="menu-item"><span>Chacarero XL</span> <span class="price">$6.800</span></div>
-        <div class="menu-item"><span>Barros Luco</span> <span class="price">$6.200</span></div>
-
-        <h2 class="category-title">Papas & Extras</h2>
-        <div class="menu-item"><span>Papas Fritas Grandes</span> <span class="price">$4.500</span></div>
-        <div class="menu-item"><span>Nuggets x10</span> <span class="price">$3.800</span></div>
-        <div class="menu-item"><span>Aros de Cebolla</span> <span class="price">$3.200</span></div>
-
-        <h2 class="category-title">Para los Peques</h2>
-        <div class="menu-item"><span>Cajita Juanita</span> <span class="price">$4.900</span></div>
-        <div class="menu-item"><span>Mini Burger Simple</span> <span class="price">$3.500</span></div>
-
-        <h2 class="category-title">Bebidas</h2>
-        <div class="menu-item"><span>Bebida 1.5L</span> <span class="price">$2.500</span></div>
-        <div class="menu-item"><span>Jugo Natural</span> <span class="price">$3.000</span></div>
-
-        <h2 class="category-title">Aderezos Extra</h2>
-        <div class="menu-item"><span>Salsa Garlic (Ajo)</span> <span class="price">$500</span></div>
-        <div class="menu-item"><span>Pote de Queso Cheddar</span> <span class="price">$1.000</span></div>
-        <div class="menu-item"><span>Salsa Spicy</span> <span class="price">$500</span></div>
+        <div style="margin: 20px 0; font-weight: 700; color: #ff4d00; font-size: 1.2rem;">🍔 BURGERS & SÁNDWICHES</div>
         
-        <h2 class="category-title">Promociones</h2>
-        <div class="menu-item"><span>Dúo Burger XL</span> <span class="price">$13.000</span></div>
-        <div class="menu-item"><span>Mega Promo Familiar</span> <span class="price">$18.900</span></div>
-    </div>
-
-    <div class="action-section">
-        <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.456!2d-71.2000!3d-30.6000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDM2JzAwLjAiUyA3McKwMTInMDAuMCJX!5e0!3m2!1ses!2scl!4v17000000000002" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <div class="food-card">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200" alt="Burger" class="food-img">
+            <div class="food-info">
+                <h3>SUPER DARAPP BURGER</h3>
+                <p>Doble carne, queso cheddar, tocino crocante y salsa secreta.</p>
+                <span class="food-price">$7.500</span>
+            </div>
         </div>
 
-        <div class="btn-group">
-            <a href="https://wa.me/56944422261?text=Hola%20Doña%20Juanita!" class="btn-premium btn-wa-premium">🟢 WHATSAPP</a>
-            <a href="tel:+56944422261" class="btn-premium btn-call">📞 LLAMAR</a>
-            <a href="#" class="btn-premium btn-map">📍 UBICACIÓN</a>
+        <div class="food-card">
+            <img src="https://images.unsplash.com/photo-1586816001966-79b736744398?w=200" alt="Italiano" class="food-img">
+            <div class="food-info">
+                <h3>COMPLETO ITALIANO</h3>
+                <p>Palta recién molida, tomate picado y mayonesa casera.</p>
+                <span class="food-price">$3.500</span>
+            </div>
         </div>
-    </div>
 
-    <a href="https://darappchile.github.io/catalogo/" class="btn-return">← Volver al Catálogo</a>
-    <p style="color: rgba(255,255,255,0.4); font-size: 0.6rem; margin-bottom: 40px;">Powered by DarApp Chile</p>
+        <a href="#" class="btn-delivery">¡PEDIR A DOMICILIO AHORA!</a>
+
+        <div class="darapp-tech">
+            <p style="margin: 0; font-size: 0.8rem; opacity: 0.8;">¿Tu local no tiene delivery digital?</p>
+            <h4 style="margin: 5px 0; color: #ff4d00; letter-spacing: 1px;">SISTEMAS DARAPP CHILE</h4>
+        </div>
+
+        <footer style="text-align: center; padding: 30px; font-size: 0.7rem; color: #999;">
+            Powered by DARAPP &copy; 2026 | Ovalle
+        </footer>
+    </div>
 
 </body>
 </html>
