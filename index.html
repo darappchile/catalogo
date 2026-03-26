@@ -3,103 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DARAPP | Soluciones Digitales Ovalle</title>
-    <meta name="description" content="Apps y Catálogos Digitales en Ovalle y el Valle del Limarí.">
-    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <title>DARAPP CHILE | Hub de Soluciones</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --azul-fondo: #0a1128;
-            --verde-neon: #10b981;
-            --blanco-puro: #ffffff;
-            --tarjeta-bg: #161b22;
-            --azul-brillo: #00d2ff;
-        }
-        body { font-family: 'Inter', sans-serif; background: var(--azul-fondo); color: var(--blanco-puro); margin: 0; text-align: center; }
-        header { padding: 80px 20px; background: radial-gradient(circle at top, #1e3a8a 0%, var(--azul-fondo) 80%); }
-        
-        /* EL LOGO QUE RESPIRA */
-        .logo-box img { 
-            height: 180px; width: 180px; border-radius: 50%; 
-            border: 4px solid var(--azul-brillo); 
-            animation: respiracion 4s infinite ease-in-out; 
-        }
-        @keyframes respiracion {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(0,210,255,0.2); }
-            50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(0,210,255,0.5); }
+            --primary: #ffb703;
+            --bg: #0f172a;
         }
 
-        .container { max-width: 1100px; margin: -30px auto 50px; padding: 0 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        
-        .card { 
-            background: var(--tarjeta-bg); padding: 30px; border-radius: 20px; 
-            border: 1px solid rgba(255,255,255,0.05); transition: 0.3s;
-            text-decoration: none; color: white; display: block;
+        body {
+            margin: 0; padding: 0;
+            background: radial-gradient(circle at top right, #1e293b, #0f172a);
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
         }
-        .card:hover { transform: translateY(-5px); border-color: var(--verde-neon); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
-        
-        /* TAMAÑO DE TUS ICONOS .PNG */
-        .card img { height: 95px; margin-bottom: 15px; object-fit: contain; }
-        .card h3 { color: var(--verde-neon); margin: 10px 0; font-size: 1.4rem; }
-        .card p { color: #8b949e; font-size: 0.9rem; }
 
-        /* BOTÓN WHATSAPP CON PULSO */
-        .btn-ws { 
-            display: inline-block; padding: 20px 45px; background: #25d366; 
-            color: white; text-decoration: none; border-radius: 50px; 
-            font-weight: bold; font-size: 1.2rem; margin-top: 50px; animation: pulso 2s infinite;
+        .hub-container {
+            width: 90%; max-width: 450px;
+            text-align: center;
+            padding: 20px;
         }
-        @keyframes pulso { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+
+        .logo-area { margin-bottom: 40px; }
+        
+        .logo-area h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem; margin: 0;
+            background: linear-gradient(to bottom, #fff, #ffb703);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 4px;
+        }
+
+        .tagline {
+            font-size: 0.7rem; letter-spacing: 4px;
+            color: #ffb703; text-transform: uppercase;
+            margin-top: -5px; font-weight: 600;
+        }
+
+        /* GRID DE BOTONES */
+        .grid-menu {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .hub-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 25px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        .hub-card i { font-size: 2rem; margin-bottom: 12px; transition: 0.3s; }
+        .hub-card span { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* COLORES POR CATEGORÍA */
+        .card-carne:hover { border-color: #ef4444; background: rgba(239, 68, 68, 0.1); }
+        .card-carne:hover i { color: #ef4444; transform: scale(1.2); }
+
+        .card-almacen:hover { border-color: #22c55e; background: rgba(34, 197, 94, 0.1); }
+        .card-almacen:hover i { color: #22c55e; transform: scale(1.2); }
+
+        .card-music:hover { border-color: #bc13fe; background: rgba(188, 19, 254, 0.1); }
+        .card-music:hover i { color: #bc13fe; transform: scale(1.2); }
+
+        .card-food:hover { border-color: #f97316; background: rgba(249, 115, 22, 0.1); }
+        .card-food:hover i { color: #f97316; transform: scale(1.2); }
+
+        .card-night:hover { border-color: #00f3ff; background: rgba(0, 243, 255, 0.1); }
+        .card-night:hover i { color: #00f3ff; transform: scale(1.2); }
+
+        .card-resto:hover { border-color: #d4af37; background: rgba(212, 175, 55, 0.1); }
+        .card-resto:hover i { color: #d4af37; transform: scale(1.2); }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 0.6rem;
+            opacity: 0.4;
+            letter-spacing: 2px;
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="logo-box"><img src="logo.jpg" alt="DARAPP OVALLE"></div>
-    <h1>DARAPP <span style="color: var(--verde-neon);">LIMARÍ</span></h1>
-    <p>Agencia de Digitalización • Ovalle, Chile</p>
-</header>
+    <div class="hub-container">
+        <div class="logo-area">
+            <h1>DARAPP</h1>
+            <div class="tagline">Sistemas e Innovación</div>
+        </div>
 
-<div class="container">
-    <div class="grid">
-        <a href="carniceria.html" class="card">
-            <img src="cat-carne.png" alt="Carnicería">
-            <h3>Carnicería Pro</h3>
-            <p>Catálogos inteligentes para cortes y precios al día.</p>
-        </a>
-        <a href="almacen.html" class="card">
-            <img src="cat-almacen.png" alt="Almacén">
-            <h3>Almacén Express</h3>
-            <p>Ventas por WhatsApp para negocios de barrio.</p>
-        </a>
-        <a href="food.html" class="card">
-            <img src="cat-food.png" alt="Food">
-            <h3>Food & Delivery</h3>
-            <p>Menú interactivo para comida rápida y delivery.</p>
-        </a>
-        <a href="restaurantes.html" class="card">
-            <img src="cat-restaurante.png" alt="Restaurante">
-            <h3>Restaurante Pro</h3>
-            <p>Cartas con código QR y gestión de reservas.</p>
-        </a>
-        <a href="night.html" class="card">
-            <img src="cat-night.png" alt="Night">
-            <h3>Night Club Elite</h3>
-            <p>Cartelera de eventos y servicios VIP exclusivos.</p>
-        </a>
-        <a href="banda.html" class="card">
-            <img src="cat-banda.png" alt="Banda">
-            <h3>Banda Musical</h3>
-            <p>Páginas para artistas, músicos y eventos en vivo.</p>
-        </a>
+        <div class="grid-menu">
+            <a href="carniceria.html" class="hub-card card-carne">
+                <i class="fas fa-drumstick-bite"></i>
+                <span>Carnicería</span>
+            </a>
+
+            <a href="almacen.html" class="hub-card card-almacen">
+                <i class="fas fa-store"></i>
+                <span>Almacén</span>
+            </a>
+
+            <a href="banda.html" class="hub-card card-music">
+                <i class="fas fa-guitar"></i>
+                <span>Música</span>
+            </a>
+
+            <a href="food.html" class="hub-card card-food">
+                <i class="fas fa-hamburger"></i>
+                <span>Delivery</span>
+            </a>
+
+            <a href="night.html" class="hub-card card-night">
+                <i class="fas fa-glass-cheers"></i>
+                <span>Night Club</span>
+            </a>
+
+            <a href="restaurantes.html" class="hub-card card-resto">
+                <i class="fas fa-utensils"></i>
+                <span>Gourmet</span>
+            </a>
+        </div>
+
+        <div class="footer">
+            TECNOLOGÍA DESARROLLADA EN OVALLE<br>
+            CHILE | 2026
+        </div>
     </div>
-
-    <a href="https://wa.me/56944422261?text=Hola%20DARAPP,%20quiero%20informacion%20sobre%20los%20planes" class="btn-ws">¡COTIZAR MI APP POR WHATSAPP!</a>
-</div>
-
-<footer style="padding: 50px; opacity: 0.5; font-size: 0.8rem;">
-    © 2026 DARAPP Soluciones Digitales - Ovalle, Valle del Limarí.
-</footer>
 
 </body>
 </html>
