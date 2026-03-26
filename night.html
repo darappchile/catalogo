@@ -3,315 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devil's Ovalle - VIP Experience</title>
+    <title>DARAPP | Night Club & Drinks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --neon-pink: #ff0055;
-            --neon-violet: #bc13fe;
-            --gold: #d4af37;
-            --cyan: #00f2ff;
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Poppins', sans-serif; background-color: #05010a; color: #fff; }
+
+        /* HEADER CON EFECTO NEÓN */
+        .night-header {
+            background-image: linear-gradient(rgba(5, 1, 10, 0.4), rgba(5, 1, 10, 0.9)), 
+                              url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=1000');
+            background-size: cover; background-position: center;
+            text-align: center; padding: 80px 20px;
+            border-bottom: 3px solid #bc13fe; /* Morado Neón */
+            box-shadow: 0 0 20px rgba(188, 19, 254, 0.4);
         }
 
-        body {
-            margin: 0;
-            padding: 0;
-            /* FONDO ACLARADO: Cambiamos de 0.8 a 0.5 para más nitidez */
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('fondo_paradise.png'); 
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            font-family: 'Arial Black', sans-serif;
-            text-align: center;
-            overflow-x: hidden;
+        .brand-badge {
+            display: inline-block; background: #bc13fe; color: white; padding: 5px 15px;
+            border-radius: 4px; font-size: 0.7rem; text-transform: uppercase;
+            letter-spacing: 3px; margin-bottom: 10px; font-weight: bold;
+            box-shadow: 0 0 10px #bc13fe;
         }
 
-        .promo-banner {
-            background: linear-gradient(90deg, var(--neon-pink), #4a00e0);
-            color: white;
-            padding: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-            position: sticky; top: 0; z-index: 1001;
+        .main-title {
+            font-family: 'Bebas Neue', sans-serif; font-size: 5rem;
+            color: #fff; margin: 0; line-height: 0.9; letter-spacing: 5px;
+            text-shadow: 0 0 10px #bc13fe, 0 0 20px #bc13fe;
         }
 
-        .header-container {
-            position: relative;
-            display: inline-block;
-            margin-top: 50px;
-            padding: 5px;
-            max-width: 90%; 
+        .container { max-width: 600px; margin: 0 auto; padding: 25px; }
+
+        .category-label {
+            color: #00f3ff; /* Cian Neón */
+            font-family: 'Bebas Neue', sans-serif; font-size: 2rem;
+            margin: 40px 0 15px; letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
         }
 
-        .marquee-box {
-            padding: 20px 30px; 
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(12px); 
-            border-radius: 100px 20px 100px 20px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 40px rgba(255, 0, 85, 0.4);
-            position: relative;
-            outline: 4px dashed #fff;
-            outline-offset: 8px;
-            animation: marquee-border 0.5s infinite linear;
-        }
-
-        @keyframes marquee-border {
-            0%, 100% { outline-color: #fff; }
-            50% { outline-color: var(--neon-pink); }
-        }
-
-        h1.vegas-title {
-            font-size: 1.8rem; 
-            margin: 0;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            animation: text-flicker 2s infinite;
-        }
-
-        @keyframes text-flicker {
-            0%, 18%, 22%, 25%, 53%, 57%, 100% {
-                text-shadow: 0 0 10px #fff, 0 0 20px var(--neon-pink), 0 0 40px var(--neon-pink);
-            }
-            20%, 24%, 55% {
-                text-shadow: none;
-                color: rgba(255,255,255,0.3);
-            }
-        }
-
-        .vip-seal {
-            position: absolute;
-            top: -25px;
-            right: -15px; 
-            width: 70px; 
-            height: 70px;
-            background: linear-gradient(135deg, #bf953f, #fcf6ba, #aa771c);
-            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: #000;
-            font-size: 0.65rem;
-            font-weight: 900;
-            z-index: 10;
-            border: 2px solid #fff;
-            animation: shine-vip 3s infinite;
-        }
-
-        @keyframes shine-vip {
-            0%, 100% { transform: scale(1); filter: brightness(1); }
-            50% { transform: scale(1.05); filter: brightness(1.3); }
-        }
-
-        .menu-container {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .category-title {
-            color: var(--neon-violet);
-            margin: 45px 0 15px 0;
-            text-transform: uppercase;
-            font-size: 1.4rem;
-            text-shadow: 0 0 15px var(--neon-violet);
-        }
-
-        .menu-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px 0;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* Reforzamos sombra de texto */
-        }
-
-        .price { 
-            color: var(--gold); 
-            text-shadow: 0 0 10px var(--gold);
-            animation: pulse-gold 2s infinite alternate;
-        }
-
-        .partners-section {
-            margin: 20px auto;
-            max-width: 500px;
-            padding: 15px;
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
-        }
-        
-        .partners-grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            opacity: 0.7;
-        }
-
-        .partner-name {
-            font-size: 0.6rem;
-            color: #aaa;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .map-wrapper {
-            max-width: 500px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        .map-container {
-            width: 100%;
-            height: 200px;
-            border-radius: 15px;
-            border: 2px solid var(--neon-pink);
-            box-shadow: 0 0 15px var(--neon-pink);
-            overflow: hidden;
-            background: #111;
-        }
-
-        .action-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            max-width: 500px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .action-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--gold);
-            padding: 20px;
-            border-radius: 15px;
-            text-decoration: none;
-            color: white;
-            transition: 0.3s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        /* TARJETAS DE TRAGOS */
+        .drink-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid #bc13fe;
+            border-radius: 10px; padding: 20px;
+            margin-bottom: 15px; display: flex; justify-content: space-between;
+            align-items: center; transition: 0.3s;
             backdrop-filter: blur(5px);
         }
 
-        .action-card:hover {
-            background: var(--gold);
-            color: black;
-            box-shadow: 0 0 20px var(--gold);
+        .drink-card:hover {
+            background: rgba(188, 19, 254, 0.1);
+            transform: scale(1.03);
+            border-left: 4px solid #00f3ff;
         }
 
-        .action-card span {
-            font-size: 0.9rem;
-            font-weight: bold;
-            text-transform: uppercase;
+        .drink-name { font-weight: 700; font-size: 1.1rem; color: #fff; }
+        .drink-desc { font-size: 0.8rem; color: #b197fc; display: block; }
+        
+        .drink-price {
+            font-size: 1.4rem; font-weight: bold; color: #00f3ff;
+            text-shadow: 0 0 5px rgba(0, 243, 255, 0.5);
         }
 
-        .full-width {
-            grid-column: span 2;
-            border-color: var(--neon-pink);
-            animation: pulse-pink 2s infinite;
+        /* BOTÓN VIP / WHATSAPP */
+        .btn-vip {
+            display: block; text-align: center; 
+            background: linear-gradient(45deg, #bc13fe, #00f3ff);
+            color: white; padding: 20px; border-radius: 50px;
+            text-decoration: none; font-weight: bold; margin: 40px 0;
+            font-size: 1.1rem; text-transform: uppercase;
+            box-shadow: 0 0 20px rgba(188, 19, 254, 0.5);
         }
 
-        .btn-return {
-            display: inline-block;
-            margin: 20px auto;
-            padding: 12px 30px;
-            background: rgba(0,0,0,0.6);
-            border: 2px solid var(--cyan);
-            color: var(--cyan);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            box-shadow: 0 0 10px var(--cyan);
-            transition: 0.3s;
-        }
-
-        .btn-return:hover {
-            background: var(--cyan);
-            color: black;
-            box-shadow: 0 0 25px var(--cyan);
-        }
-
-        @keyframes pulse-pink {
-            0% { box-shadow: 0 0 5px var(--neon-pink); }
-            50% { box-shadow: 0 0 20px var(--neon-pink); }
-            100% { box-shadow: 0 0 5px var(--neon-pink); }
+        .darapp-neon {
+            text-align: center; border: 1px solid #bc13fe;
+            padding: 20px; border-radius: 15px;
+            background: rgba(188, 19, 254, 0.05);
+            box-shadow: inset 0 0 15px rgba(188, 19, 254, 0.2);
         }
     </style>
 </head>
 <body>
 
-    <div class="promo-banner">
-        🔥 VIERNES Y SÁBADO: 2x1 SHOP ARTESANAL 🔥
-    </div>
+    <header class="night-header">
+        <div class="brand-badge">Sistemas DARAPP</div>
+        <h1 class="main-title">NIGHT CLUB</h1>
+        <p style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 4px; color: #00f3ff;">Cocktails & Experience</p>
+    </header>
 
-    <div class="header-container">
-        <a href="https://wa.me/56944422261?text=Hola%20Daniel,%20quiero%20actualizar%20mi%20información" class="vip-seal">
-            <span>RESERVA<br>VIP</span>
-        </a>
-
-        <div class="marquee-box">
-            <h1 class="vegas-title">DEVIL'S OVALLE</h1>
-            <p style="color: var(--gold); letter-spacing: 5px; font-weight: bold; margin-top: 10px; font-size: 0.7rem;">NIGHT CLUB</p>
-        </div>
-    </div>
-
-    <div class="menu-container">
-        <h2 class="category-title">Coctelería Premium</h2>
-        <div class="menu-item"><span>Whisky Blue Label</span> <span class="price">$150.000</span></div>
-        <div class="menu-item"><span>Mojito Frambuesa</span> <span class="price">$7.500</span></div>
-        <div class="menu-item"><span>Tequila Margarita</span> <span class="price">$8.000</span></div>
+    <div class="container">
         
-        <h2 class="category-title">Cervezas & Shops</h2>
-        <div class="menu-item"><span>Shop Artesanal 500cc</span> <span class="price">$5.000</span></div>
-        <div class="menu-item"><span>Heineken Botella</span> <span class="price">$4.500</span></div>
-    </div>
-
-    <div class="partners-section">
-        <div class="partners-grid">
-            <span class="partner-name">JOHNNIE WALKER</span>
-            <span class="partner-name">HEINEKEN</span>
-            <span class="partner-name">CHIVAS REGAL</span>
-            <span class="partner-name">CORONA</span>
+        <div class="category-label">Signature Cocktails</div>
+        
+        <div class="drink-card">
+            <div>
+                <span class="drink-name">MOJITO CROWN</span>
+                <span class="drink-desc">Menta fresca, ron blanco, limón y soda premium.</span>
+            </div>
+            <div class="drink-price">$6.500</div>
         </div>
-    </div>
 
-    <div class="action-grid">
-        <a href="#" class="action-card full-width">
-            <span>VER PROMOS DE HOY</span>
-        </a>
-        <a href="tel:+56944422261" class="action-card">
-            <span>LLAMAR</span>
-        </a>
-        <a href="https://maps.google.com/?q=Ovalle,Chile" class="action-card">
-            <span>UBICACION</span>
-        </a>
-    </div>
-
-    <div class="map-wrapper">
-        <div class="map-container">
-            <iframe 
-                width="100%" 
-                height="100%" 
-                frameborder="0" 
-                scrolling="no" 
-                marginheight="0" 
-                marginwidth="0" 
-                src="https://maps.google.com/maps?q=Ovalle,Chile&t=&z=15&ie=UTF8&iwloc=&output=embed">
-            </iframe>
+        <div class="drink-card">
+            <div>
+                <span class="drink-name">NEÓN GIN TONIC</span>
+                <span class="drink-desc">Gin nacional, tónica, frutos rojos y un toque de luz.</span>
+            </div>
+            <div class="drink-price">$7.900</div>
         </div>
+
+        <div class="category-label">Para Compartir</div>
+
+        <div class="drink-card">
+            <div>
+                <span class="drink-name">TABLA DARAPP</span>
+                <span class="drink-desc">Selección de quesos, jamones y frutos secos.</span>
+            </div>
+            <div class="drink-price">$18.900</div>
+        </div>
+
+        <a href="#" class="btn-vip">RESERVAR MESA VIP</a>
+
+        <div class="darapp-neon">
+            <h4 style="margin: 0; color: #00f3ff; letter-spacing: 2px;">POTENCIA TU LOCAL</h4>
+            <p style="font-size: 0.8rem; margin: 5px 0;">Catálogos Digitales Interactivos por</p>
+            <b style="color: #bc13fe;">DARAPP CHILE SpA</b>
+        </div>
+
+        <footer style="text-align: center; padding: 40px; font-size: 0.7rem; opacity: 0.4;">
+            SISTEMAS DARAPP &copy; 2026 | OVALLE
+        </footer>
     </div>
-
-    <a href="https://darappchile.github.io/catalogo/" class="btn-return">
-        ⬅ VOLVER A DARAPP PRINCIPAL
-    </a>
-
-    <p style="color: rgba(255,255,255,0.4); margin: 60px 0;">— Devil's Ovalle Exclusive —</p>
 
 </body>
 </html>
